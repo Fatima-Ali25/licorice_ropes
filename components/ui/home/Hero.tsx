@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { siteData } from '@/content/index';
+import { Button } from '../button';
 
 export default function Hero() {
   const scrollToSection = (href: string) => {
@@ -12,68 +12,54 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0 bg-[{'/images/hero.png'}]">
-        <div 
-          className="w-full h-full bg-cover bg-center bg-no-repeat "
-          style={{ backgroundImage: `url('/images/hero.png')` }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
-      </div>
+      <div
+        className="absolute inset-0 z-0 opacity-50 bg-cover bg-center bg-no-repeat bg-[url('/images/hero.png')] "
+      />
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-4xl">
-        <motion.h1
-          className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+      <div className="relative z-10 text-start text-white max-w-5xl">
+        <h1
+          className="text-6xl md:text-7xl font-bold mb-6 leading-tight uppercase max-w-4xl"
         >
-          {siteData.hero.headline}
-        </motion.h1>
+         Bold Flavors, <span className="text-[#FBC332]">Pure Fun – Taste </span> the Difference Today!
+         
+        </h1>
 
-        <motion.p
-          className="text-xl md:text-2xl mb-8 text-gray-200 leading-relaxed"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+        <p
+          className="text-xl md:text-3xl mb-8 text-gray-200 leading-relaxed uppercase"
         >
-          {siteData.hero.subtext}
-        </motion.p>
-
-        <motion.button
+         Indulge in mouthwatering candies crafted in Spain, bursting with flavor and quality ingredients. Perfectly sweet or sour – there’s a treat for everyone!
+        </p>
+        <div className="flex gap-7">
+        <Button
           onClick={() => scrollToSection('#order')}
-          className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          className="bg-[#FBC332] hover:bg-white text-black px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl"
         >
-          {siteData.hero.ctaText}
-        </motion.button>
+          order now
+        </Button>
+        <Button
+          onClick={() => scrollToSection('#order')}
+          className="bg-white/50 hover:bg-white text-black px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl"
+        >
+          Explore Flavors
+        </Button>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      <div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
       >
-        <motion.div
+        <div
           className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
         >
-          <motion.div
+          <div
             className="w-1 h-3 bg-white/50 rounded-full mt-2"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
           />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

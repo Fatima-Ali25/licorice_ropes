@@ -17,10 +17,10 @@ export const siteData = {
 
   // Hero Section
   hero: {
-    headline: "TASTE THE DIFFERENCE TODAY!",
+    headline: "Bold Flavors, Pure Fun – Taste the Difference Today!",
     subtext: "Experience authentic flavors crafted with passion and served with love. Join thousands of satisfied customers who choose us for exceptional dining.",
     ctaText: "Order Now",
-    backgroundImage: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920"
+    backgroundImage: "hero.png"
   },
 
   // Who We Are Section
