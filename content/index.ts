@@ -6,7 +6,6 @@ export const siteData = {
       { name: "Home", href: "#home" },
       { name: "About", href: "#about" },
       { name: "Order Online", href: "#order" },
-      { name: "Testimonials", href: "#testimonials" },
       { name: "Contact", href: "#contact" }
     ],
     ctaButton: {
@@ -21,19 +20,6 @@ export const siteData = {
     subtext: "Experience authentic flavors crafted with passion and served with love. Join thousands of satisfied customers who choose us for exceptional dining.",
     ctaText: "Order Now",
     backgroundImage: "hero.png"
-  },
-
-  // Who We Are Section
-  whoWeAre: {
-    title: "WHO WE ARE",
-    description: "We are passionate food artisans dedicated to creating extraordinary culinary experiences. Our team combines traditional techniques with modern innovation to deliver exceptional quality in every dish.",
-    teamImage: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
-    stats: [
-      { number: "500+", label: "Happy Clients", icon: "👥" },
-      { number: "300+", label: "Projects Completed", icon: "🎯" },
-      { number: "15+", label: "Years Experience", icon: "⭐" },
-      { number: "24/7", label: "Customer Support", icon: "🕒" }
-    ]
   },
 
   // Why Choose Us Section
