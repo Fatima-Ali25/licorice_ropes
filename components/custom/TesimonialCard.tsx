@@ -1,7 +1,6 @@
-'use client';
-
-import { motion } from 'framer-motion';
+'use client'
 import { Star } from 'lucide-react';
+import Image from 'next/image';
 
 interface TestimonialCardProps {
   id: number;
@@ -25,21 +24,17 @@ export default function TestimonialCard({
   onClick 
 }: TestimonialCardProps) {
   return (
-    <motion.div
+    <div
       className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ y: -5 }}
-      viewport={{ once: true }}
       onClick={onClick}
     >
       <div className="flex items-start space-x-4">
-        <motion.img
+        <Image
           src={image}
           alt={name}
+          width={64}
+          height={64}
           className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-          whileHover={{ scale: 1.1 }}
         />
         
         <div className="flex-1">
@@ -58,6 +53,6 @@ export default function TestimonialCard({
           <p className="text-gray-700 leading-relaxed">{feedback}</p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

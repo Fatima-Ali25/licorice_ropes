@@ -12,7 +12,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative flex items-center justify-center overflow-hidden">
+    <section id="home" className=" h-full w-full relative flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 z-0 opacity-50 bg-cover bg-center bg-no-repeat bg-[url('/images/hero.png')] "
