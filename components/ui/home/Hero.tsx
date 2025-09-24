@@ -1,6 +1,6 @@
 'use client';
 
-import { siteData } from '@/content/index';
+
 import { Button } from '../button';
 
 export default function Hero() {
@@ -12,52 +12,37 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className=" h-full w-full relative flex items-center justify-center overflow-hidden">
+    <section className="h-full w-full min-h-screen relative overflow-hidden flex items-center bg-cover bg-center bg-no-repeat bg-[url('/images/hero.png')]">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 z-0 opacity-50 bg-cover bg-center bg-no-repeat bg-[url('/images/hero.png')] "
-      />
+      <div className="absolute h-full w-full bg-black/50" />
+      
+      {/* Content Container */}
+      <div className="layout w-full h-full flex items-center justify-start">
+        {/* Content */}
+        <div className="z-10 text-start text-white w-full max-w-4xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight uppercase">
+            Bold Flavors, <span className="text-[#FBC332]">Pure Fun – Taste</span> the Difference Today!
+          </h1>
 
-      {/* Content */}
-      <div className="relative z-10 text-start text-white max-w-5xl">
-        <h1
-          className="text-6xl md:text-7xl font-bold mb-6 leading-tight uppercase max-w-4xl"
-        >
-         Bold Flavors, <span className="text-[#FBC332]">Pure Fun – Taste </span> the Difference Today!
-         
-        </h1>
-
-        <p
-          className="text-xl md:text-3xl mb-8 text-gray-200 leading-relaxed uppercase"
-        >
-         Indulge in mouthwatering candies crafted in Spain, bursting with flavor and quality ingredients. Perfectly sweet or sour – there’s a treat for everyone!
-        </p>
-        <div className="flex gap-7">
-        <Button
-          onClick={() => scrollToSection('#order')}
-          className="bg-[#FBC332] hover:bg-white text-black px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl"
-        >
-          order now
-        </Button>
-        <Button
-          onClick={() => scrollToSection('#order')}
-          className="bg-white/50 hover:bg-white text-black px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl"
-        >
-          Explore Flavors
-        </Button>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <div
-          className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center"
-        >
-          <div
-            className="w-1 h-3 bg-white/50 rounded-full mt-2"
-          />
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6 md:mb-8 text-gray-200 leading-relaxed uppercase max-w-3xl">
+            Indulge in mouthwatering candies crafted in Spain, bursting with flavor and quality ingredients. Perfectly sweet or sour – there's a treat for everyone!
+          </p>
+          
+          {/* Button Container */}
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-7">
+            <Button
+              onClick={() => scrollToSection('#order')}
+              className="bg-[#FBC332] hover:bg-white text-black px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 w-full sm:w-auto"
+            >
+              Order Now
+            </Button>
+            <Button
+              onClick={() => scrollToSection('#order')}
+              className="bg-white/50 hover:bg-white text-black px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 w-full sm:w-auto"
+            >
+              Explore Flavors
+            </Button>
+          </div>
         </div>
       </div>
     </section>

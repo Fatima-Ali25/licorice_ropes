@@ -22,13 +22,13 @@ const WhyChooseUs = () => {
         {/* Main Content Grid */}
           <div className="w-full h-full flex items-center justify-between gap-8">
           {/* Left Section - Main Image */}
-          <div className=" w-full h-full rounded-3xl overflow-hidden shadow-lg">
-            <div className="relative h-[600px] lg:h-[700px] rounded-2xl overflow-hidden">
+          <div className=" w-full h-full rounded-3xl overflow-hidden shadow-lg ">
+            <div className="relative h-[600px] lg:h-[700px] rounded-2xl overflow-hidden bg-black">
               <Image
                 src="/images/whychoose.png"
                 alt="Team working together"
-                fill
-                className="object-cover"
+               fill
+                className="object-cover opacity-80"
                 priority
               />
               

@@ -6,13 +6,8 @@ export const siteData = {
       { name: "Home", href: "#home" },
       { name: "About", href: "#about" },
       { name: "Order Online", href: "#order" },
-      { name: "Testimonials", href: "#testimonials" },
       { name: "Contact", href: "#contact" }
     ],
-    ctaButton: {
-      text: "Get Started",
-      href: "#contact"
-    }
   },
 
   // Hero Section
@@ -21,19 +16,6 @@ export const siteData = {
     subtext: "Experience authentic flavors crafted with passion and served with love. Join thousands of satisfied customers who choose us for exceptional dining.",
     ctaText: "Order Now",
     backgroundImage: "hero.png"
-  },
-
-  // Who We Are Section
-  whoWeAre: {
-    title: "WHO WE ARE",
-    description: "We are passionate food artisans dedicated to creating extraordinary culinary experiences. Our team combines traditional techniques with modern innovation to deliver exceptional quality in every dish.",
-    teamImage: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
-    stats: [
-      { number: "500+", label: "Happy Clients", icon: "👥" },
-      { number: "300+", label: "Projects Completed", icon: "🎯" },
-      { number: "15+", label: "Years Experience", icon: "⭐" },
-      { number: "24/7", label: "Customer Support", icon: "🕒" }
-    ]
   },
 
   // Why Choose Us Section
@@ -58,158 +40,166 @@ export const siteData = {
   },
 
   // Explore Items Section
-  exploreItems: {
-    title: "Explore Items",
-    viewMoreText: "View More",
-    products: [
-      {
-        id: 1,
-        name: "Sour Cherry",
-        description: "Lorem Ipsum",
-        currentPrice: 6.00,
-        originalPrice: 160.00,
-        discount: null,
-        image: "/images/image 1.png",
-        backgroundColor: "#FFB6C1"
-      },
-      {
-        id: 2,
-        name: "Sour Blue-Raspberry",
-        description: "Lorem Ipsum",
-        currentPrice: 6.00,
-        originalPrice: 160.00,
-        discount: 40,
-        image: "/images/image 2.png",
-        backgroundColor: "#87CEEB"
-      },
-      {
-        id: 3,
-        name: "Sour Berry Delight",
-        description: "Lorem Ipsum",
-        currentPrice: 6.00,
-        originalPrice: 160.00,
-        discount: 40,
-        image: "/images/image 3.png",
-        backgroundColor: "#FF69B4"
-      },
-      {
-        id: 4,
-        name: "Sour Apple",
-        description: "Lorem Ipsum",
-        currentPrice: 6.00,
-        originalPrice: 160.00,
-        discount: 40,
-        image: "/images/image 4.png",
-        backgroundColor: "#98FB98"
-      },
-      {
-        id: 5,
-        name: "Red Twist",
-        description: "Lorem Ipsum",
-        currentPrice: 6.00,
-        originalPrice: 160.00,
-        discount: 40,
-        image: "/images/image 5.png",
-        backgroundColor: "#FF6B6B"
-      },
-      {
-        id: 6,
-        name: "Cotton Candy",
-        description: "Lorem Ipsum",
-        currentPrice: 6.00,
-        originalPrice: 160.00,
-        discount: 40,
-        image: "/images/image 6.png",
-        backgroundColor: "#DDA0DD"
-      },
-      {
-        id: 7,
-        name: "Black Twist",
-        description: "Lorem Ipsum",
-        currentPrice: 6.00,
-        originalPrice: 160.00,
-        discount: 60,
-        image: "/images/hero.png",
-        backgroundColor: "#2F2F2F"
-      },
-      {
-        id: 8,
-        name: "Cotton Candy",
-        description: "Lorem Ipsum",
-        currentPrice: 6.00,
-        originalPrice: 160.00,
-        discount: null,
-        image: "/images/hero.png",
-        backgroundColor: "#DDA0DD"
-      }
-    ]
-  },
+  // exploreItems: {
+  //   title: "Explore Items",
+  //   viewMoreText: "View More",
+  //   products: [
+  //     {
+  //       id: 1,
+  //       name: "Sour Cherry",
+  //       description: "Lorem Ipsum",
+  //       currentPrice: 6.00,
+  //       originalPrice: 160.00,
+  //       discount: null,
+  //       image: "/images/image 1.png",
+  //       backgroundColor: "#FFB6C1"
+  //     },
+  //     {
+  //       id: 2,
+  //       name: "Sour Blue-Raspberry",
+  //       description: "Lorem Ipsum",
+  //       currentPrice: 6.00,
+  //       originalPrice: 160.00,
+  //       discount: 40,
+  //       image: "/images/image 2.png",
+  //       backgroundColor: "#87CEEB"
+  //     },
+  //     {
+  //       id: 3,
+  //       name: "Sour Berry Delight",
+  //       description: "Lorem Ipsum",
+  //       currentPrice: 6.00,
+  //       originalPrice: 160.00,
+  //       discount: 40,
+  //       image: "/images/image 3.png",
+  //       backgroundColor: "#FF69B4"
+  //     },
+  //     {
+  //       id: 4,
+  //       name: "Sour Apple",
+  //       description: "Lorem Ipsum",
+  //       currentPrice: 6.00,
+  //       originalPrice: 160.00,
+  //       discount: 40,
+  //       image: "/images/image 4.png",
+  //       backgroundColor: "#98FB98"
+  //     },
+  //     {
+  //       id: 5,
+  //       name: "Red Twist",
+  //       description: "Lorem Ipsum",
+  //       currentPrice: 6.00,
+  //       originalPrice: 160.00,
+  //       discount: 40,
+  //       image: "/images/image 5.png",
+  //       backgroundColor: "#FF6B6B"
+  //     },
+  //     {
+  //       id: 6,
+  //       name: "Cotton Candy",
+  //       description: "Lorem Ipsum",
+  //       currentPrice: 6.00,
+  //       originalPrice: 160.00,
+  //       discount: 40,
+  //       image: "/images/image 6.png",
+  //       backgroundColor: "#DDA0DD"
+  //     },
+  //     {
+  //       id: 7,
+  //       name: "Black Twist",
+  //       description: "Lorem Ipsum",
+  //       currentPrice: 6.00,
+  //       originalPrice: 160.00,
+  //       discount: 60,
+  //       image: "/images/hero.png",
+  //       backgroundColor: "#2F2F2F"
+  //     },
+  //     {
+  //       id: 8,
+  //       name: "Cotton Candy",
+  //       description: "Lorem Ipsum",
+  //       currentPrice: 6.00,
+  //       originalPrice: 160.00,
+  //       discount: null,
+  //       image: "/images/hero.png",
+  //       backgroundColor: "#DDA0DD"
+  //     }
+  //   ]
+  // },
 
   // Products Section
   products: [
     {
       id: 1,
-      name: "Gourmet Burger",
-      title: "Gourmet Burger",
-      description: "Juicy beef patty with fresh vegetables",
-      price: 12.99,
-      image: "/images/image1.png"
+      name: "Cotton Candy",
+      description: "Lorem Ipsum",
+      currentPrice: 6.00,
+      originalPrice: 160.00,
+      discount: null,
+      image: "/images/image 1.png",
     },
     {
       id: 2,
-      name: "Pasta Carbonara",
-      title: "Pasta Carbonara",
-      description: "Creamy pasta with bacon and parmesan",
-      price: 15.99,
-      image: "/images/image 2.png"
+      name: "Sour Blue-Raspberry",
+      description: "Lorem Ipsum",
+      currentPrice: 6.00,
+      originalPrice: 160.00,
+      discount: 40,
+      image: "/images/image 3.png", 
     },
     {
       id: 3,
-      name: "Caesar Salad",
-      title: "Caesar Salad",
-      description: "Fresh romaine with classic caesar dressing",
-      price: 9.99,
+      name: "Sour Berry Delight",
+      description: "Lorem Ipsum",
+      currentPrice: 6.00,
+      originalPrice: 160.00,
+      discount: 40,
       image: "/images/image 3.png"
     },
     {
       id: 4,
-      name: "Grilled Chicken",
-      title: "Grilled Chicken",
-      description: "Perfectly seasoned grilled chicken breast",
-      price: 18.99,
-      image: "/images/image 4.png"
+      name: "Sour Apple",
+      description: "Lorem Ipsum",
+      currentPrice: 6.00,
+      originalPrice: 160.00,
+      discount: 40,
+      image: "/images/image 4.png",
     },
     {
       id: 5,
-      name: "Fish Tacos",
-      title: "Fish Tacos",
-      description: "Fresh fish with spicy mayo and slaw",
-      price: 13.99,
-      image: "/images/image 5.png"
+      name: "Red Twist",
+      description: "Lorem Ipsum",
+      currentPrice: 6.00,
+      originalPrice: 160.00,
+      discount: 40,
+      image: "/images/image 5.png",
     },
     {
       id: 6,
-      name: "Margherita Pizza",
-      title: "Margherita Pizza",
-      description: "Classic Italian pizza with fresh basil",
-      price: 16.99,
-      image: "/images/image 6.png"
+      name: "Cotton Candy",
+      description: "Lorem Ipsum",
+      currentPrice: 6.00,
+      originalPrice: 160.00,
+      discount: 40,
+      image: "/images/image 6.png",
     },
     {
       id: 7,
-      name: "Beef Steak",
-      title: "Beef Steak",
-      description: "Premium cut grilled to perfection",
-      price: 24.99,
-      image: "/images/image 7.png"
+      name: "Black Twist",
+      description: "Lorem Ipsum",
+      currentPrice: 6.00,
+      originalPrice: 160.00,
+      discount: 60,
+      image: "/images/image 7.png",
     },
     {
       id: 8,
-      name: "Chocolate Cake",
-      title: "Chocolate Cake",
-      description: "Decadent chocolate cake with berries",
-      price: 7.99,
-      image: "/images/image 8.png"
+      name: "Cotton Candy",
+      description: "Lorem Ipsum",
+      currentPrice: 6.00,
+      originalPrice: 160.00,
+      discount: null,
+      image: "/images/image 8.png",
     }
   ],
 
