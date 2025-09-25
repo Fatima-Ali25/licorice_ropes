@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { siteData } from '@/content/index';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,102 +13,183 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      console.log(window.scrollY);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll y', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isMobileMenuOpen && !target.closest('header')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('/')) {
+      // External link - navigate to page
+      window.location.href = href;
+    } else {
+      // Internal link - scroll to section
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsMobileMenuOpen(false);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'py-4' : 'py-6'
-      }`}
-    >
-      <div className={`container mx-auto px-4 bg-white flex items-center justify-between rounded-full transition-all duration-300 ${
-        isScrolled ? 'h-16 shadow-lg' : 'h-20'
-      }`}>
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <img
-              src="/images/logo.png"
-              alt="Logo"
-              className={`cursor-pointer transition-all duration-300 ${
-                isScrolled ? 'w-12 h-12' : 'w-14 h-14'
-              }`}
-              onClick={() => scrollToSection('#home')}
-            />
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center justify-center gap-6 flex-1 max-w-md mx-8">
-            {siteData.navigation.links.map((link, index) => (
-              <button
-                key={link.name}
-                onClick={() => scrollToSection(link.href)}
-                className={`font-medium transition-colors duration-300 hover:text-red-500 text-sm ${
-                  isScrolled ? 'text-gray-700' : 'text-black'
-                }`}
-              >
-                {link.name}
-              </button>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <button
-            onClick={() => scrollToSection(siteData.navigation.ctaButton.href)}
-            className={`hidden lg:block bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition-all duration-300 ${
-              isScrolled ? 'px-4 py-2 text-sm' : 'px-6 py-3'
-            }`}
-          >
-            {siteData.navigation.ctaButton.text}
-          </button>
-
-          {/* Mobile Menu Button */}
-          <button
-            className={`lg:hidden p-2 rounded-lg transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-gray-700 hover:bg-gray-100'
-            }`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`lg:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-xl transition-all duration-300 ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+      className={`bg-transparent h-full w-full fixed  left-0 z-50 px-4 sm:px-6 lg:px-8 ${isScrolled ? 'top-0 sm:top-0 lg:top-0 transition-all duration-300' : 'top-4 sm:top-6 lg:top-10 transition-all duration-300'}
         }`}
-      >
-        <div className="px-4 py-6 space-y-2">
+    >
+      <div className={`layout bg-white w-full sm:w-1/2 flex items-center justify-between rounded-full transition-all duration-300 overflow-hidden ${isScrolled ? 'h-10 xs:h-12 sm:h-14 md:h-16 shadow-lg' : 'h-12 xs:h-14 sm:h-16 md:h-20'
+        }`}>
+        {/* Logo */}
+      
+          <Image
+            src="/images/logo.png"
+            width={100}
+            height={100}
+            alt="Logo"
+            className={`cursor-pointer transition-all duration-300 ${isScrolled ? 'w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12' : 'w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 md:w-14 md:h-14'
+              }`}
+            onClick={() => scrollToSection('#home')}
+          />
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center justify-center gap-3 lg:gap-6 lg:mx-8">
           {siteData.navigation.links.map((link) => (
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors text-sm"
+              className={`font-medium transition-colors duration-300 hover:text-[#FF8C00] text-xs md:text-sm lg:text-base ${isScrolled ? 'text-gray-700' : 'text-black'
+                }`}
             >
               {link.name}
             </button>
           ))}
-          <button
-            onClick={() => scrollToSection(siteData.navigation.ctaButton.href)}
-            className="w-full bg-red-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors text-sm mt-4"
+        </nav>
+
+        {/* User & Cart Icons - Mobile Only */}
+        <div className="hidden md:flex items-center justify-center gap-2 lg:gap-2 xl:gap-3">
+          <Link
+            href="/user"
+            className="flex items-center justify-center p-1 lg:p-1.5 xl:p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            // style={{ minWidth: 36, minHeight: 36 }}
+            aria-label="User Account"
           >
-            {siteData.navigation.ctaButton.text}
-          </button>
+            <Image
+              src="/svg/user.svg"
+              alt="User Account"
+              width={20}
+              height={20}
+              // className="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7"
+              // style={{ maxWidth: "100%", height: "auto" }}
+              priority
+            />
+          </Link>
+          <Link
+            href="/cart"
+            className="flex items-center justify-center p-1 lg:p-1.5 xl:p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            // style={{ minWidth: 36, minHeight: 36 }}
+            aria-label="Shopping Cart"
+          >
+            <Image
+              src="/svg/cart.svg"
+              alt="Shopping Cart"
+              width={22}
+              height={22}
+              className="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7"
+              // style={{ maxWidth: "100%", height: "auto" }}
+              priority
+            />
+          </Link>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className={`md:hidden p-2 rounded-lg transition-colors duration-300 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#FF8C00]/20`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+        >
+          {isMobileMenuOpen ? <X size={20} className="w-5 h-5" /> : <Menu size={20} className="w-5 h-5" />}
+        </button>
+
       </div>
+
+      {/* Mobile Hamburger Menu (Visible on Mobile Screens) */}
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 z-50 bg-black/40 flex"
+          style={{ transition: 'background 0.3s' }}
+        >
+          {/* Slide-in menu panel */}
+          <div className="layout relative w-full bg-white h-1/3 shadow-xl rounded-r-xl flex flex-col justify-start ">
+            {/* Close button (top right of menu) */}
+            <button
+              className="absolute top-1 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={24} className="text-gray-700" />
+            </button>
+
+
+            {/* Navigation Links */}
+            <nav className="flex flex-col gap-1">
+              {siteData.navigation.links.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={() => scrollToSection(link.href)}
+                  className="w-full text-left px-3 py-4 text-gray-700 hover:bg-[#FF8C00]/10 hover:text-[#FF8C00] rounded-lg transition-colors text-base font-medium"
+                >
+                  {link.name}
+                </button>
+              ))}
+            </nav>
+            {/* User & Cart Links */}
+            <div className="flex items-center justify-center gap-4 h-1/4 border-b border-gray-200">
+              <Link
+                href="/user"
+                className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:bg-[#FF8C00]/10 hover:text-[#FF8C00] rounded-lg transition-colors text-base"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Image src="/svg/user.svg" alt="User Account" width={18} height={18} className="w-5 h-5" />
+                Account
+              </Link>
+              <Link
+                href="/cart"
+                className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:bg-[#FF8C00]/10 hover:text-[#FF8C00] rounded-lg transition-colors text-base"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Image src="/svg/cart.svg" alt="Shopping Cart" width={18} height={18} className="w-5 h-5" />
+                Cart
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

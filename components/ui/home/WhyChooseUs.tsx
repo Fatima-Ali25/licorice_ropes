@@ -7,37 +7,37 @@ const WhyChooseUs = () => {
   const cardData = siteData.whyChooseUs.cardData;
 
   return (
-    <section className="w-full h-full bg-[#F5F5DC] py-16">
-      <div className="layout w-full h-full flex flex-col items-center justify-center">
+    <section className="w-full bg-[#F5F5DC] py-8 sm:py-12 lg:py-16">
+      <div className="layout px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="w-full h-full flex justify-between items-center mb-12">
-          <h2 className="text-6xl lg:text-6xl font-semibold text-black font-inter uppercase">
+        <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4 sm:gap-0">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-black font-inter uppercase leading-tight">
             WHY CHOOSE US?
           </h2>
-          <span className="text-black font-inter text-2xl underline decoration-2 underline-offset-4">
+          <span className="text-black font-inter text-lg sm:text-xl lg:text-2xl underline decoration-2 underline-offset-4 self-start sm:self-auto">
             Designed For You →
           </span>
         </div>
 
         {/* Main Content Grid */}
-          <div className="w-full h-full flex items-center justify-between gap-8">
+        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
           {/* Left Section - Main Image */}
-          <div className=" w-full h-full rounded-3xl overflow-hidden shadow-lg">
-            <div className="relative h-[600px] lg:h-[700px] rounded-2xl overflow-hidden">
+          <div className="w-full lg:w-2/3 rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg">
+            <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] rounded-xl sm:rounded-2xl overflow-hidden bg-black">
               <Image
                 src="/images/whychoose.png"
                 alt="Team working together"
                 fill
-                className="object-cover"
+                className="object-cover opacity-80"
                 priority
               />
               
               {/* Overlay Text Box */}
-              <div className="absolute bottom-6 left-6 rounded-lg p-6 max-w-md">
-                <h3 className="text-white font-bold text-xl mb-3">
+              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 rounded-lg p-4 sm:p-6 max-w-xs sm:max-w-md">
+                <h3 className="text-white font-bold text-lg sm:text-xl mb-2 sm:mb-3">
                   Candy With a Purpose
                 </h3>
-                <p className="text-white text-sm leading-relaxed">
+                <p className="text-white text-xs sm:text-sm leading-relaxed">
                   We're committed to delivering high quality, flavorful candies made with carefully selected ingredients. Proudly crafted in-house, our sweets are designed to delight with every bite.
                 </p>
               </div>
@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
           </div>
 
           {/* Right Section - Three Content Blocks */}
-          <div className="w-1/2 h-full flex flex-col gap-10 items-center justify-between">
+          <div className="w-full lg:w-1/3 flex flex-col gap-6 sm:gap-8 lg:gap-10 items-center justify-between">
             {cardData.map((card, index) => (
               <WhyChooseUsCard
                 key={index}
