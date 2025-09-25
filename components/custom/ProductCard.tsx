@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Link, ShoppingCart } from "lucide-react";
+import {  ShoppingCart } from "lucide-react";
+import Link from "next/link";
 import { Card, CardContent, CardTitle, CardDescription } from "@/components/ui/card";
 
 // Product Interface
@@ -29,9 +30,9 @@ const ProductCard = ({ product, onAddToCart, className }: ProductCardProps) => {
   };
 
   return (
-    <Card className={`w-72 h-80 bg-white border-0 shadow-sm hover:shadow-md transition-shadow duration-300 group ${className}`}>
+    <Card className={`w-full max-w-xs sm:w-64 md:w-72 h-auto sm:h-72 md:h-96 bg-white border-0 shadow-sm hover:shadow-md transition-shadow duration-300 group ${className}`}>
       {/* Product Image Container */}
-      <div className="relative h-48 bg-[#F5F5DC] flex items-center justify-center overflow-hidden">
+      <div className="relative h-48 sm:h-56 md:h-64 w-full bg-[#F5F5DC] flex items-center justify-center overflow-hidden">
 
         {/* Product Image - Licorice rope simulation */}
         <Image
@@ -39,49 +40,48 @@ const ProductCard = ({ product, onAddToCart, className }: ProductCardProps) => {
           alt={product.name}
           width={80}
           height={80}
-          className="object-cover w-52 h-52"
+          className="object-cover w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56"
         />
 
         {/* Discount Tag */}
         {product.discount && (
-          <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-sm shadow-sm">
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#C50003] text-white text-xs font-bold px-2 py-1 rounded-sm shadow-sm">
             -{product.discount}%
           </div>
         )}
       </div>
 
       {/* Product Info */}
-      <CardContent className="p-4">
+      <div className="p-3 sm:p-2 w-full h-full flex flex-col">
         {/* Product Name */}
-        <CardTitle className="text-black text-xl mb-1 font-semibold font-poppins">
+        <h2 className="text-black text-lg sm:text-xl font-semibold font-poppins">
           {product.name}
-        </CardTitle>
+        </h2>
 
         {/* Description */}
-        <CardDescription className="text-[#C4C4C4] text-lg font-medium mb-4 font-poppins">
+        <p className="text-[#C4C4C4] text-sm sm:text-base md:text-lg mb-2 font-medium font-inter">
           {product.description}
-        </CardDescription>
+        </p>
 
         {/* Price and Add to Cart */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between mt-auto">
             {/* Current Price */}
-            <span className="text-[#E7AB3C] font-medium text-xl">
+            <div className="flex gap-2 sm:gap-4">
+            <span className="text-[#E7AB3C] text-lg sm:text-xl font-semibold">
               ${product.currentPrice.toFixed(2)}
             </span>
 
             {/* Original Price */}
-            <span className="text-[#C4C4C4] text-lg line-through font-medium font-poppins">
+            <span className="text-[#C4C4C4] text-sm sm:text-base md:text-lg line-through font-medium font-poppins">
               ${product.originalPrice.toFixed(0)}
             </span>
-          </div>
-
+            </div>
           {/* Add to Cart Button */}
-         <Link href={`/products/${product.id}`}>
-            <Image src="/svg/Icon.svg" alt="Add to Cart" width={20} height={20} />
+         <Link href={`/products`}>
+         <ShoppingCart className="text-black font-semibold w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
           </Link>
         </div>
-      </CardContent>
+      </div>
     </Card>
   );
 };

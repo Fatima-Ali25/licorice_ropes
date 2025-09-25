@@ -18,6 +18,28 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isMobileMenuOpen && !target.closest('header')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (href: string) => {
     if (href.startsWith('/')) {
       // External link - navigate to page
@@ -32,12 +54,16 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <header
-      className={`bg-transparent h-full w-full  fixed top-10 left-0 z-50
+      className={`bg-transparent h-full w-full fixed  left-0 z-50 px-4 sm:px-6 lg:px-8 ${isScrolled ? 'top-0 sm:top-0 lg:top-0 transition-all duration-300' : 'top-4 sm:top-6 lg:top-10 transition-all duration-300'}
         }`}
     >
-      <div className={`layout bg-white sm:w-1/2 flex items-center justify-between rounded-full transition-all duration-300 overflow-hidden ${isScrolled ? 'h-10 xs:h-12 sm:h-14 md:h-16 shadow-lg' : 'h-12 xs:h-14 sm:h-16 md:h-20'
+      <div className={`layout bg-white w-full sm:w-1/2 flex items-center justify-between rounded-full transition-all duration-300 overflow-hidden ${isScrolled ? 'h-10 xs:h-12 sm:h-14 md:h-16 shadow-lg' : 'h-12 xs:h-14 sm:h-16 md:h-20'
         }`}>
         {/* Logo */}
       
@@ -53,7 +79,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center justify-center gap-3 lg:gap-6 lg:mx-8">
-          {siteData.navigation.links.map((link, index) => (
+          {siteData.navigation.links.map((link) => (
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
@@ -66,27 +92,27 @@ export default function Header() {
         </nav>
 
         {/* User & Cart Icons - Mobile Only */}
-        <div className="hidden md:flex items-center justify-center gap-2 lg:gap-3 xl:gap-4">
+        <div className="hidden md:flex items-center justify-center gap-2 lg:gap-2 xl:gap-3">
           <Link
             href="/user"
             className="flex items-center justify-center p-1 lg:p-1.5 xl:p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-            style={{ minWidth: 36, minHeight: 36 }}
+            // style={{ minWidth: 36, minHeight: 36 }}
             aria-label="User Account"
           >
             <Image
               src="/svg/user.svg"
               alt="User Account"
-              width={22}
-              height={22}
-              className="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7"
-              style={{ maxWidth: "100%", height: "auto" }}
+              width={20}
+              height={20}
+              // className="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7"
+              // style={{ maxWidth: "100%", height: "auto" }}
               priority
             />
           </Link>
           <Link
             href="/cart"
             className="flex items-center justify-center p-1 lg:p-1.5 xl:p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-            style={{ minWidth: 36, minHeight: 36 }}
+            // style={{ minWidth: 36, minHeight: 36 }}
             aria-label="Shopping Cart"
           >
             <Image
@@ -95,7 +121,7 @@ export default function Header() {
               width={22}
               height={22}
               className="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7"
-              style={{ maxWidth: "100%", height: "auto" }}
+              // style={{ maxWidth: "100%", height: "auto" }}
               priority
             />
           </Link>
@@ -103,52 +129,67 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className={`md:hidden p-1 xs:p-1.5 sm:p-2 rounded-lg transition-colors duration-300 ${isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-gray-700 hover:bg-gray-100'
-            }`}
+          className={`md:hidden p-2 rounded-lg transition-colors duration-300 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#FF8C00]/20`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
         >
-          {isMobileMenuOpen ? <X size={18} className="xs:w-5 xs:h-5 sm:w-6 sm:h-6" /> : <Menu size={18} className="xs:w-5 xs:h-5 sm:w-6 sm:h-6" />}
+          {isMobileMenuOpen ? <X size={20} className="w-5 h-5" /> : <Menu size={20} className="w-5 h-5" />}
         </button>
 
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden absolute top-full left-2 right-2 xs:left-3 xs:right-3 sm:left-4 sm:right-4 mt-1 xs:mt-2 bg-white rounded-xl xs:rounded-2xl shadow-xl transition-all duration-300 max-w-[calc(100vw-1rem)] ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-          }`}
-      >
-        <div className="px-2 py-3 xs:px-3 xs:py-4 sm:px-4 sm:py-6 space-y-1 xs:space-y-1 sm:space-y-2">
-          {/* User & Cart Links in Mobile Menu */}
-          <div className="flex items-center justify-center gap-2 xs:gap-4 pb-2 border-b border-gray-200">
-            <Link
-              href={'/user'}
-              className="flex items-center gap-1 xs:gap-2 px-2 xs:px-3 py-1.5 xs:py-2 text-gray-700 hover:bg-[#FF8C00]/10 hover:text-[#FF8C00] rounded-lg transition-colors text-xs xs:text-sm sm:text-base"
-            >
-              <Image src="/svg/user.svg" alt="User Account" width={14} height={14} className="xs:w-4 xs:h-4" />
-              Account
-            </Link>
-            <Link
-              href={'/cart'}
-              className="flex items-center gap-1 xs:gap-2 px-2 xs:px-3 py-1.5 xs:py-2 text-gray-700 hover:bg-[#FF8C00]/10 hover:text-[#FF8C00] rounded-lg transition-colors text-xs xs:text-sm sm:text-base"
-            >
-              <Image src="/svg/cart.svg" alt="Shopping Cart" width={14} height={14} className="xs:w-4 xs:h-4" />
-              Cart
-            </Link>
-          </div>
-
-          {/* Navigation Links */}
-          {siteData.navigation.links.map((link) => (
+      {/* Mobile Hamburger Menu (Visible on Mobile Screens) */}
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 z-50 bg-black/40 flex"
+          style={{ transition: 'background 0.3s' }}
+        >
+          {/* Slide-in menu panel */}
+          <div className="layout relative w-full bg-white h-1/3 shadow-xl rounded-r-xl flex flex-col justify-start ">
+            {/* Close button (top right of menu) */}
             <button
-              key={link.name}
-              onClick={() => scrollToSection(link.href)}
-              className="block w-full text-left px-2 xs:px-3 py-1.5 xs:py-2 sm:px-4 sm:py-3 text-gray-700 hover:bg-[#FF8C00]/10 hover:text-[#FF8C00] rounded-lg transition-colors text-xs xs:text-sm sm:text-base"
+              className="absolute top-1 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close menu"
             >
-              {link.name}
+              <X size={24} className="text-gray-700" />
             </button>
-          ))}
 
+
+            {/* Navigation Links */}
+            <nav className="flex flex-col gap-1">
+              {siteData.navigation.links.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={() => scrollToSection(link.href)}
+                  className="w-full text-left px-3 py-4 text-gray-700 hover:bg-[#FF8C00]/10 hover:text-[#FF8C00] rounded-lg transition-colors text-base font-medium"
+                >
+                  {link.name}
+                </button>
+              ))}
+            </nav>
+            {/* User & Cart Links */}
+            <div className="flex items-center justify-center gap-4 h-1/4 border-b border-gray-200">
+              <Link
+                href="/user"
+                className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:bg-[#FF8C00]/10 hover:text-[#FF8C00] rounded-lg transition-colors text-base"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Image src="/svg/user.svg" alt="User Account" width={18} height={18} className="w-5 h-5" />
+                Account
+              </Link>
+              <Link
+                href="/cart"
+                className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:bg-[#FF8C00]/10 hover:text-[#FF8C00] rounded-lg transition-colors text-base"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Image src="/svg/cart.svg" alt="Shopping Cart" width={18} height={18} className="w-5 h-5" />
+                Cart
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

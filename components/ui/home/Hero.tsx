@@ -14,17 +14,17 @@ export default function Hero() {
   return (
     <section className="h-full w-full min-h-screen relative overflow-hidden flex items-center bg-cover bg-center bg-no-repeat bg-[url('/images/hero.png')]">
       {/* Background Image */}
-      <div className="absolute h-full w-full bg-black/50" />
+      <div className="absolute h-full w-full bg-black/40" />
       
       {/* Content Container */}
       <div className="layout w-full h-full flex items-center justify-start">
         {/* Content */}
-        <div className="z-10 text-start text-white w-full max-w-4xl">
+        <div className="z-10 text-start text-white w-full max-w-6xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight uppercase">
             Bold Flavors, <span className="text-[#FBC332]">Pure Fun – Taste</span> the Difference Today!
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6 md:mb-8 text-gray-200 leading-relaxed uppercase max-w-3xl">
+          <p className="text-xl sm:text-sm md:text-lg lg:text-2xl xl:text-2xl font-medium md:mb-8 text-white leading-relaxed uppercase max-w-4xl">
             Indulge in mouthwatering candies crafted in Spain, bursting with flavor and quality ingredients. Perfectly sweet or sour – there's a treat for everyone!
           </p>
           

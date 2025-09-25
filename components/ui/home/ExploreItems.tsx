@@ -40,24 +40,24 @@ const ExploreItems = () => {
   };
 
   return (
-    <section className="py-16 px-4 lg:px-8 bg-white">
-      <div className="layout">
+    <section className="py-16 px-4 lg:px-8 bg-white w-full h-full">
+      <div className="layout  w-full h-full py-16 flex flex-col gap-10 ">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-10">
+          <h2 className="text-6xl lg:text-6xl sm:text-3xl md:text-4xl font-bold text-black">
             Explore Items
           </h2>
           <a 
             href="/products" 
             className="text-black hover:text-[#FF8C00] transition-colors duration-200 flex items-center gap-2 group self-start sm:self-auto"
           >
-            <span className="font-medium text-base sm:text-lg">View More</span>
+            <span className="font-inter text-2xl sm:text-lg">View More</span>
             <span className="group-hover:translate-x-1 transition-transform duration-200 text-lg">→</span>
           </a>
         </div>
 
         {/* Products Grid - 2x4 layout as in the image */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto items-center justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 items-center justify-center w-full h-full">
           {productList.map((product: Product) => (
             <ProductCard
               key={product.id}

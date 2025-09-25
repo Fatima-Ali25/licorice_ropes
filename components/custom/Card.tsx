@@ -25,11 +25,11 @@ interface WhyChooseUsCardProps {
         overlay={true}
         overlayOpacity={overlayOpacity}
         hover={hover}
-        className={cn('w-full h-52 rounded-3xl shadow-lg hover:bg-black/70 flex flex-col items-start justify-end', className)}
+        className={cn('w-full h-40 sm:h-48 lg:h-52 rounded-2xl sm:rounded-3xl shadow-lg hover:bg-black/70 flex flex-col items-start justify-end', className)}
       >
-        <CardContent className="w-full h-full">
-          <CardTitle className="mb-3 text-xl font-semibold">{title}</CardTitle>
-          <CardDescription className="text-sm">{description}</CardDescription>
+        <CardContent className="w-full h-full p-4 sm:p-6">
+          <CardTitle className="mb-2 sm:mb-3 text-lg sm:text-xl font-semibold">{title}</CardTitle>
+          <CardDescription className="text-xs sm:text-sm">{description}</CardDescription>
         </CardContent>
       </Card>
     );
