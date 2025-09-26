@@ -1,7 +1,8 @@
 'use client';
 
 
-import { Button } from '../button';
+import Button from '@/components/custom/Button'
+import Link from 'next/link';
 
 export default function Hero() {
     const { hero } = siteData;
@@ -60,18 +61,19 @@ export default function Hero() {
           
           {/* Button Container */}
           <div className="flex flex-col sm:flex-row gap-4 md:gap-7">
-            <Button
-              onClick={() => scrollToSection('#order')}
-              className="bg-[#FBC332] hover:bg-white text-black px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 w-full sm:w-auto"
+          
+            <Button onClick={() => scrollToSection('#order')}
+              className="bg-[#FBC332] hover:bg-white text-black w-52 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 sm:w-auto"
             >
               Order Now
             </Button>
-            <Button
-              onClick={() => scrollToSection('#order')}
+            
+            <Button onClick={() => scrollToSection('#flavors')}
               className="bg-white/50 hover:bg-white text-black px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 w-full sm:w-auto"
             >
               Explore Flavors
             </Button>
+            
           </div>
         </div>
       </div>

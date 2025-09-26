@@ -1,6 +1,7 @@
 import Image from "next/image";
 import WhyChooseUsCard from "@/components/custom/Card";
 import { siteData } from "@/content/index";
+import Button from "@/components/custom/Button";
 
 
 const WhyChooseUs = () => {
@@ -11,12 +12,12 @@ const WhyChooseUs = () => {
       <div className="layout px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4 sm:gap-0">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-black font-inter uppercase leading-tight">
+          <h2 className=" uppercase sm:text-4xl md:text-5xl text-black lg:text-6xl xl:text-7xl font-bold sm:mb-10 md:mb-12 lg:mb-20">
             WHY CHOOSE US?
           </h2>
-          <span className="text-black font-inter text-lg sm:text-xl lg:text-2xl underline decoration-2 underline-offset-4 self-start sm:self-auto">
-            Designed For You →
-          </span>
+          <Button className="text-black inline-block font-inter text-2xl sm:text-xl lg:text-2xl hover:scale-105 transition-all duration-300">
+            Designed For You <Image src="/images/Arrow 3.png" alt="arrow-right" width={200} height={0} className='' />
+          </Button>
         </div>
 
         {/* Main Content Grid */}

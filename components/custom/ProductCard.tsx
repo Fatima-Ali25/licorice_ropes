@@ -40,6 +40,9 @@ const ProductCard = ({ product, onAddToCart, className }: ProductCardProps) => {
 
   return (
 <<<<<<< HEAD
+    <Card className={`w-full  max-w-xs sm:w-64 md:w-72 h-auto sm:h-72 md:h-96 bg-white border-0 shadow-sm hover:shadow-lg transition-shadow duration-300 group ${className}`}>
+=======
+<<<<<<< HEAD
     <Card
       className={`bg-white border-0 shadow-sm hover:shadow-md transition-shadow duration-300 group ${className}`}
     >
@@ -69,6 +72,7 @@ const ProductCard = ({ product, onAddToCart, className }: ProductCardProps) => {
         </Link>
 =======
     <Card className={`w-full max-w-xs sm:w-64 md:w-72 h-auto sm:h-72 md:h-96 bg-white border-0 shadow-sm hover:shadow-md transition-shadow duration-300 group ${className}`}>
+>>>>>>> 05ed974f032a31352d303261157d4d699533ea75
       {/* Product Image Container */}
       <div className="relative h-48 sm:h-56 md:h-64 w-full bg-[#F5F5DC] flex items-center justify-center overflow-hidden">
 

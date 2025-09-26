@@ -1,3 +1,4 @@
+import Link from 'next/link'; 
 import React from 'react'
 
 interface ButtonProps {
@@ -6,6 +7,7 @@ interface ButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  href?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -13,21 +15,21 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   onClick,
   disabled = false,
-  type = 'button'
+  type = 'button',
+  href = ''
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2';
-  const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer';
-  const combinedClasses = `${baseClasses} ${disabledClasses} ${className}`;
 
   return (
-    <button
+    <Link href={href}>
+    <button  
       type={type}
-      className={combinedClasses}
+      className={className}
       onClick={onClick}
       disabled={disabled}
     >
-      <p className="m-0">{children}</p>
+      {children}
     </button>
+    </Link>
   );
 };
 
