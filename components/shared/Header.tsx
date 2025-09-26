@@ -60,7 +60,7 @@ export default function Header() {
 
   return (
     <header
-      className={`bg-transparent h-full w-full fixed  left-0 z-50 px-4 sm:px-6 lg:px-8 ${isScrolled ? 'top-0 sm:top-0 lg:top-0 transition-all duration-300' : 'top-4 sm:top-6 lg:top-10 transition-all duration-300'}
+      className={`bg-transparent w-full fixed  left-0 z-50 px-4 sm:px-6 lg:px-8 ${isScrolled ? 'top-0 sm:top-0 lg:top-0 transition-all duration-300' : 'top-4 sm:top-6 lg:top-10 transition-all duration-300'}
         }`}
     >
       <div className={`layout bg-white w-full sm:w-1/2 flex items-center justify-between rounded-full transition-all duration-300 overflow-hidden ${isScrolled ? 'h-10 xs:h-12 sm:h-14 md:h-16 shadow-lg' : 'h-12 xs:h-14 sm:h-16 md:h-20'

@@ -30,7 +30,7 @@ const ProductCard = ({ product, onAddToCart, className }: ProductCardProps) => {
   };
 
   return (
-    <Card className={`w-full max-w-xs sm:w-64 md:w-72 h-auto sm:h-72 md:h-96 bg-white border-0 shadow-sm hover:shadow-md transition-shadow duration-300 group ${className}`}>
+    <Card className={`w-full  max-w-xs sm:w-64 md:w-72 h-auto sm:h-72 md:h-96 bg-white border-0 shadow-sm hover:shadow-lg transition-shadow duration-300 group ${className}`}>
       {/* Product Image Container */}
       <div className="relative h-48 sm:h-56 md:h-64 w-full bg-[#F5F5DC] flex items-center justify-center overflow-hidden">
 
