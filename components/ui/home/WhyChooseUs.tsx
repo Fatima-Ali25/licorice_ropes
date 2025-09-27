@@ -9,14 +9,14 @@ const WhyChooseUs = () => {
 
   return (
     <section className="w-full bg-[#F5F5DC] py-8 sm:py-12 lg:py-16">
-      <div className="layout px-4 sm:px-6 lg:px-8">
+      <div className="layout px-4 sm:px-6 lg:px-8 bg-amber-100">
         {/* Header */}
-        <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4 sm:gap-0">
-          <h2 className=" uppercase sm:text-4xl md:text-5xl text-black lg:text-6xl xl:text-7xl font-bold sm:mb-10 md:mb-12 lg:mb-20">
+        <div className="w-full p-2  flex flex-col sm:flex-row justify-between items-start mb-12 gap-4 sm:gap-6">
+          <h2 className=" uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black font-inter font-bold sm:mb-10 md:mb-12 lg:mb-20">
             WHY CHOOSE US?
           </h2>
-          <Button className="text-black inline-block font-inter text-2xl sm:text-xl lg:text-2xl hover:scale-105 transition-all duration-300">
-            Designed For You <Image src="/images/Arrow 3.png" alt="arrow-right" width={200} height={0} className='' />
+          <Button className="text-black inline-block font-inter sm:text-xl lg:text-2xl md:text-2xl hover:scale-105 transition-all duration-300">
+            Designed For You <Image src="/images/Arrow 3.png" alt="arrow-right" width={200} height={0} className='w-full h-auto' />
           </Button>
         </div>
 

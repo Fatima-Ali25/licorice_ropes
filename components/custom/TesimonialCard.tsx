@@ -13,53 +13,44 @@ interface TestimonialCardProps {
   onClick?: () => void;
 }
 
-export default function TestimonialCard({ 
-  id, 
-  name, 
-  role, 
-  rating, 
-  feedback, 
-  image, 
+export default function TestimonialCard({
+  id,
+  name,
+  role,
+  rating,
+  feedback,
+  image,
   index = 0,
-  onClick 
+  // onClick 
 }: TestimonialCardProps) {
   return (
-    <div
-      className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full"
-      onClick={onClick}
-    >
-      <div className="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4">
-        <div className="flex items-center space-x-3 sm:block sm:space-x-0">
-          <Image
-            src={image}
-            alt={name}
-            width={64}
-            height={64}
-            className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover flex-shrink-0"
-          />
-          
-          <div className="sm:hidden">
-            <h4 className="font-semibold text-gray-800 text-sm sm:text-base">{name}</h4>
-            <p className="text-gray-600 text-xs sm:text-sm">{role}</p>
-          </div>
-        </div>
-        
-        <div className="flex-1 w-full">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 sm:mb-3">
-            <div className="hidden sm:block">
-              <h4 className="font-semibold text-gray-800 text-sm sm:text-base">{name}</h4>
-              <p className="text-gray-600 text-xs sm:text-sm">{role}</p>
-            </div>
-            <div className="flex space-x-1 justify-center sm:justify-end">
-              {[...Array(rating)].map((_, i) => (
-                <Star key={i} size={14} className="sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-          </div>
-          
-          <p className="text-gray-700 leading-relaxed text-sm sm:text-base text-center sm:text-left">{feedback}</p>
+    // <div
+    //   className=" bg-amber-200 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full"
+    //   onClick={onClick}
+    // >
+    <div className="bg-white w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto p-6 sm:p-8 md:p-10 gap-6 sm:gap-8 md:gap-10 flex flex-col items-center justify-center rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full items-center">
+        <Image
+          src={image}
+          alt={name}
+          width={82}
+          height={82}
+          className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover"
+        />
+        <div className="flex gap-1 flex-col w-full">
+          <h4 className="text-black gap-4 flex uppercase font-inter text-lg sm:text-xl font-bold">{name}</h4>
+          <p className="text-[#8F8E8E] text-xs sm:text-sm">{role}</p>
+          <span className="flex gap-1">
+            <Image src="/svg/Star.svg" alt="star" width={15} height={15} />
+            <Image src="/svg/Star.svg" alt="star" width={15} height={15} />
+            <Image src="/svg/Star.svg" alt="star" width={15} height={15} />
+            <Image src="/svg/Star.svg" alt="star" width={15} height={15} />
+            <Image src="/svg/Star.svg" alt="star" width={15} height={15} />
+          </span>
         </div>
       </div>
+      <p className="text-black leading-6 text-xs sm:text-sm text-regular text-start sm:text-left">{feedback}</p>
     </div>
+    // </div>
   );
 }

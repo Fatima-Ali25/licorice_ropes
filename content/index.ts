@@ -5,7 +5,7 @@ export const siteData = {
     links: [
       { name: "Home", href: "#home" },
       { name: "About", href: "#about" },
-      { name: "Order Online", href: "#order" },
+      { name: "Order Online", href: "#products" },
       { name: "Contact", href: "#contact" }
     ],
   },
@@ -200,6 +200,42 @@ export const siteData = {
       originalPrice: 160.00,
       discount: null,
       image: "/images/image 8.png",
+    },
+    {
+      id: 9,
+      name: "Strawberry Twist",
+      description: "Sweet and tangy strawberry flavor with a delightful twist",
+      currentPrice: 7.50,
+      originalPrice: 12.00,
+      discount: 37,
+      image: "/images/image 1.png",
+    },
+    {
+      id: 10,
+      name: "Grape Explosion",
+      description: "Bursting with rich grape flavor and satisfying texture",
+      currentPrice: 8.00,
+      originalPrice: 15.00,
+      discount: 47,
+      image: "/images/image 2.png",
+    },
+    {
+      id: 11,
+      name: "Watermelon Splash",
+      description: "Refreshing watermelon taste perfect for summer",
+      currentPrice: 6.50,
+      originalPrice: 10.00,
+      discount: 35,
+      image: "/images/image 3.png",
+    },
+    {
+      id: 12,
+      name: "Orange Zest",
+      description: "Zesty orange flavor with a citrusy kick",
+      currentPrice: 7.00,
+      originalPrice: 11.00,
+      discount: 36,
+      image: "/images/image 4.png",
     }
   ],
 

@@ -1,118 +1,158 @@
-'use client';
-import { siteData } from "@/content";
-import ProductCard from "@/components/custom/ProductCard";
-import Link from "next/link";
+'use client'
 
-// Product Interface (matching the one in ProductCard)
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  currentPrice: number;
-  originalPrice: number;
-  discount: number | null;
-  image: string;
-  backgroundColor: string;
-}
+import { useState } from 'react'
+import { siteData } from '@/content'
+import ProductCard from '@/components/custom/ProductCard'
+import { ChevronDown, ChevronRight } from 'lucide-react'
 
-const ProductsPage = () => {
-  const { products } = siteData;
+export default function ProductsPage() {
+  const [sortBy, setSortBy] = useState('default')
+  const [showPerPage, setShowPerPage] = useState(9)
+  const [currentPage, setCurrentPage] = useState(1)
 
-  // Products are already in the correct format from index.ts
-  const productList: Product[] = products.map((product: any, index: number) => {
-    // Predefined colors for consistent display since backgroundColor was removed
-    const colors = [
-      "#FFB6C1", "#87CEEB", "#FF69B4", "#98FB98",
-      "#FF6B6B", "#DDA0DD", "#2F2F2F", "#FFA500"
-    ];
-    
-    return {
-      id: product.id,
-      name: product.name,
-      description: product.description,
-      currentPrice: product.currentPrice,
-      originalPrice: product.originalPrice,
-      discount: product.discount,
-      image: product.image,
-      backgroundColor: colors[index] || "#FFB6C1"
-    };
-  });
+  const { products } = siteData
+  const totalProducts = products.length
 
-  // Handle add to cart functionality
-  const handleAddToCart = (product: Product) => {
-    console.log('Adding to cart:', product);
-    // Add your cart logic here
-  };
+  // Calculate pagination
+  const startIndex = (currentPage - 1) * showPerPage
+  const endIndex = startIndex + showPerPage
+  const currentProducts = products.slice(startIndex, endIndex)
+  const totalPages = Math.ceil(totalProducts / showPerPage)
+
+  // Transform products to match ProductCard interface
+  const transformedProducts = currentProducts.map((product: any) => ({
+    id: product.id,
+    name: product.name,
+    description: product.description,
+    currentPrice: product.currentPrice,
+    originalPrice: product.originalPrice,
+    discount: product.discount,
+    image: product.image,
+    backgroundColor: product.backgroundColor || "#FFB6C1"
+  }))
+
+  const handleAddToCart = (product: any) => {
+    console.log("Adding to cart:", product)
+  }
+
+  const handleSort = (value: string) => {
+    setSortBy(value)
+    // TODO: Implement sorting logic
+  }
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+  }
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header Section */}
-      <section className="py-16 px-4 lg:px-8 bg-gradient-to-r from-[#FF8C00] to-[#FF7F00]">
-        <div className="layout">
-          <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-              Our Products
-            </h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto">
-              Discover our complete collection of premium licorice candies. Each flavor is crafted with care to deliver the perfect taste experience.
-            </p>
-          </div>
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-[#FFF9ED] to-[#F5F5DC] py-16 sm:py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 font-poppins">
+            Our Products
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-inter">
+            Discover our amazing collection of premium licorice candies. Each product is crafted with care and bursting with authentic flavors.
+          </p>
         </div>
-      </section>
+      </div>
 
-      {/* Products Grid Section */}
-      <section className="py-16 px-4 lg:px-8">
-        <div className="layout">
-          {/* Breadcrumb */}
-          <nav className="mb-8">
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <Link href="/" className="hover:text-[#FF8C00] transition-colors">
-                Home
-              </Link>
-              <span>→</span>
-              <span className="text-gray-900 font-medium">Products</span>
+      {/* Products Section */}
+      <div className="py-16 sm:py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Controls Section */}
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+            {/* Left Side - Sorting Controls */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="relative">
+                <select
+                  value={sortBy}
+                  onChange={(e) => handleSort(e.target.value)}
+                  className="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-[#E85A2D] focus:border-transparent"
+                >
+                  <option value="default">Default Sorting</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="name">Name: A to Z</option>
+                  <option value="newest">Newest First</option>
+                </select>
+                <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+              </div>
+
+              <div className="relative">
+                <select
+                  value={showPerPage}
+                  onChange={(e) => setShowPerPage(Number(e.target.value))}
+                  className="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-[#E85A2D] focus:border-transparent"
+                >
+                  <option value={9}>Show: 09</option>
+                  <option value={12}>Show: 12</option>
+                  <option value={18}>Show: 18</option>
+                  <option value={24}>Show: 24</option>
+                </select>
+                <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+              </div>
             </div>
-          </nav>
 
-          {/* Products Count */}
-          <div className="mb-8">
-            <p className="text-gray-600">
-              Showing {productList.length} products
-            </p>
+            {/* Right Side - Results Info */}
+            <div className="text-sm text-gray-600">
+              Show {startIndex + 1} - {Math.min(endIndex, totalProducts)} Of {totalProducts} Product
+            </div>
           </div>
 
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {productList.map((product: Product) => (
-              <Link key={product.id} href={`/products/${product.id}`}>
-                <ProductCard
-                  product={product}
-                  onAddToCart={handleAddToCart}
-                  className="hover:scale-105 transition-transform duration-300 cursor-pointer"
-                />
-              </Link>
+          {/* Products Grid - 3x4 layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+            {transformedProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onAddToCart={handleAddToCart}
+              />
             ))}
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center mt-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Can't find what you're looking for?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Contact us for custom orders or special requests
-            </p>
-            <Link 
-              href="/contact"
-              className="inline-flex items-center px-6 py-3 bg-[#FF8C00] hover:bg-[#FF7F00] text-white font-medium rounded-lg transition-colors duration-200"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-};
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center space-x-2">
+              {/* Previous Button */}
+              {currentPage > 1 && (
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                >
+                  <ChevronRight className="w-4 h-4 rotate-180" />
+                </button>
+              )}
 
-export default ProductsPage;
+              {/* Page Numbers */}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  className={`w-10 h-10 flex items-center justify-center border rounded-lg transition-colors duration-200 ${
+                    page === currentPage
+                      ? 'bg-[#E85A2D] text-white border-[#E85A2D]'
+                      : 'border-gray-300 hover:bg-gray-50'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+
+              {/* Next Button */}
+              {currentPage < totalPages && (
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
