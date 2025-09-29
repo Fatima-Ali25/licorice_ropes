@@ -9,7 +9,7 @@ const WhyChooseUs = () => {
 
   return (
     <section className="w-full bg-[#F5F5DC] py-8 sm:py-12 lg:py-16">
-      <div className="layout px-4 sm:px-6 lg:px-8 bg-amber-100">
+      <div className="layout">
         {/* Header */}
         <div className="w-full p-2  flex flex-col sm:flex-row justify-between items-start mb-12 gap-4 sm:gap-6">
           <h2 className=" uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black font-inter font-bold sm:mb-10 md:mb-12 lg:mb-20">

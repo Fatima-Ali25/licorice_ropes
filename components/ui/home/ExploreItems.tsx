@@ -3,6 +3,7 @@ import { siteData } from "@/content";
 import ProductCard from "@/components/custom/ProductCard";
 import Image from "next/image";
 import Button from "@/components/custom/Button"
+import Link from "next/link";
 
 interface Product {
   id: number;
@@ -42,15 +43,19 @@ const ExploreItems = () => {
       <div className="layout w-full h-full py-16 flex flex-col gap-10">
         {/* Header */}
         <div className="w-full p-2 flex flex-col sm:flex-row justify-between items-start mb-12 gap-6 sm:gap-6">
-          <h2 className=" text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black font-inter font-semibold sm:mb-10 md:mb-12 lg:mb-20">
+          <h2 className=" text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black uppercase font-inter font-semibold sm:mb-10 md:mb-12 lg:mb-20">
             Explore Items
           </h2>
-          <Button className="text-black inline-block font-inter sm:text-xl lg:text-2xl md:text-2xl hover:scale-105 transition-all duration-300"> Looking For  <Image src="/images/Arrow 3.png" alt="arrow-right" width={150} height={0} className="w-full h-auto" />
-          </Button>
+          <Link href="/product">
+            <Button className="text-black inline-block font-inter sm:text-xl lg:text-2xl md:text-2xl hover:scale-105 transition-all duration-300"> 
+              Looking For  
+              <Image src="/images/Arrow 3.png" alt="arrow-right" width={150} height={0} className="w-full h-auto" />
+            </Button>
+          </Link>
         </div>
 
         {/* Products Grid - Show only 8 products */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-6 md:justify-between items-center justify-between w-full h-full">
+        <div className="bg-amber-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-6 md:justify-between items-center justify-between w-full h-full">
           {productList.slice(0, 8).map((product: Product) => (
             <ProductCard
               key={product.id}

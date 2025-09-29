@@ -23,7 +23,7 @@ const WhoWeAre = () => {
         </h1>
 
         {/* Main Content Grid */}
-        <div className="flex flex-col lg:flex-row gap-6 w-full h-full">
+        <div className=" flex flex-col lg:flex-row gap-6 w-full h-full">
           {/* Left Side - Image and Button */}
           <div className=" flex flex-col items-center lg:items-start gap-4 p-2 sm:gap-6 md:gap-8 lg:gap-10 lg:w-1/2">
             {/* <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto  "> */}
@@ -32,7 +32,7 @@ const WhoWeAre = () => {
               height={400}
               src="/images/team.png"
               alt="Team collaboration"
-              className=" object-cover rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg"
+              className="w-full h-full object-cover rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg"
             />
             {/* </div> */}
 
@@ -43,7 +43,7 @@ const WhoWeAre = () => {
           </div>
 
           {/* Statistics */}
-          <div className="flex flex-col w-full lg:w-1/2 h-full justify-center gap-8 sm:gap-10 md:gap-16 lg:gap-20 p-2 sm:p-4">
+          <div className="flex flex-col w-full lg:w-1/2 h-full justify-center gap-8 sm:gap-10 md:gap-20 lg:gap-20 p-2 sm:p-4">
             <div className="flex flex-col w-full h-auto justify-center gap-6 sm:gap-4 md:gap-6 lg:gap-10">
               <div className="flex flex-col w-full gap-1">
                 <h1 className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#E85A2D]">
@@ -64,17 +64,17 @@ const WhoWeAre = () => {
                 <p className="text-black text-lg sm:text-xl md:text-2xl">Lorem Ipsum Dolor Sit</p>
               </div>
             </div>
-            <p className="text-black font-inter leading-5 text-xs sm:text-sm md:text-base">
+            <p className="text-black font-inter leading-5 tracking-wide text-xs sm:text-sm md:text-base">
               Welcome to Southern Sweet and Sour, a proud Disabled Veteran Owned and Operated business.
               We're more than just a candy brand - we're a mission-driven company committed to giving back.
               Our passion for fun, flavorful licorice ropes comes with a purpose: supporting the veteran community.
             </p>
           </div>
           {/* Right Side - Stats and Content */}
-          <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-7 p-2 lg:w-1/2">
+          <div className="flex flex-col items-start gap-4 sm:gap-6 md:gap-7 p-2 lg:w-1/2">
 
             {/* Company Description */}
-            <p className="text-black font-inter leading-5 text-xs sm:text-sm md:text-base">
+            <p className="text-black font-inter leading-5 tracking-wide text-xs sm:text-sm md:text-base">
               A portion of every purchase helps fund Warrior's Next Adventure, an organization dedicated to
               helping veterans heal through adventure and support. When you enjoy our sweet and sour treats,
               you're also contributing to a greater cause. Thank you for being part of our journey to make a
@@ -88,7 +88,7 @@ const WhoWeAre = () => {
               height={400}
               src="/images/team.png"
               alt="Team collaboration"
-              className=" object-cover rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg"
+              className="w-full object-cover rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg"
             />
             {/* </div> */}
 

@@ -60,30 +60,30 @@ export default function Header() {
 
   return (
     <header
-      className={`bg-transparent w-full fixed  left-0 z-50 px-4 sm:px-6 lg:px-8 ${isScrolled ? 'top-0 sm:top-0 lg:top-0 transition-all duration-300' : 'top-4 sm:top-6 lg:top-10 transition-all duration-300'}
+      className={`bg-transparent w-full fixed  left-0 z-50 px-6 sm:px-7 lg:px-10 ${isScrolled ? 'top-0 sm:top-0 lg:top-0 transition-all duration-300' : 'top-4 sm:top-6 lg:top-10 transition-all duration-300'}
         }`}
     >
-      <div className={`layout bg-white w-full sm:w-1/2 flex items-center justify-between rounded-full transition-all duration-300 overflow-hidden ${isScrolled ? 'h-10 xs:h-12 sm:h-14 md:h-16 shadow-lg' : 'h-12 xs:h-14 sm:h-16 md:h-20'
+      <div className={`layout bg-white shadow-lg border border-gray-200 w-full sm:w-1/2 flex items-center justify-between rounded-full transition-all duration-300 overflow-hidden ${isScrolled ? 'h-10 xs:h-12 sm:h-14 md:h-16 shadow-lg' : 'h-12 xs:h-14 sm:h-16 md:h-20'
         }`}>
         {/* Logo */}
-      
-          <Image
-            src="/images/logo.png"
-            width={100}
-            height={100}
-            alt="Logo"
-            className={`cursor-pointer transition-all duration-300 ${isScrolled ? 'w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12' : 'w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 md:w-14 md:h-14'
-              }`}
-            onClick={() => scrollToSection('#home')}
-          />
+
+        <Image
+          src="/images/logo.png"
+          width={100}
+          height={100}
+          alt="Logo"
+          className={`cursor-pointer transition-all duration-300 ${isScrolled ? 'w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12' : 'w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 md:w-14 md:h-14'
+            }`}
+          onClick={() => scrollToSection('#home')}
+        />
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center justify-center gap-3 lg:gap-6 lg:mx-8">
+        <nav className="hidden md:flex items-center h-full w-2/3 justify-center gap-24 lg:gap-24 lg:mx-8 text-lg font-inter font-medium">
           {siteData.navigation.links.map((link) => (
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className={`font-medium transition-colors duration-300 hover:text-[#FF8C00] text-xs md:text-sm lg:text-base ${isScrolled ? 'text-gray-700' : 'text-black'
+              className={`font-medium transition-colors uppercase tracking-wide duration-300 hover:text-[#FF8C00] text-xs md:text-sm lg:text-base ${isScrolled ? 'text-gray-700' : 'text-black'
                 }`}
             >
               {link.name}

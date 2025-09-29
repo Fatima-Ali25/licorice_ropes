@@ -3,10 +3,10 @@ export const siteData = {
   navigation: {
     logo: "FoodCraft",
     links: [
-      { name: "Home", href: "#home" },
-      { name: "About", href: "#about" },
-      { name: "Order Online", href: "#products" },
-      { name: "Contact", href: "#contact" }
+      { name: "Home", href: "/home" },
+      { name: "Order Online", href: "/product" },
+      { name: "About", href: "/about" },
+      { name: "Contact", href: "/contact" }
     ],
   },
 
@@ -38,95 +38,6 @@ export const siteData = {
       }
     ]
   },
-
-  // Explore Items Section
-  // exploreItems: {
-  //   title: "Explore Items",
-  //   viewMoreText: "View More",
-  //   products: [
-  //     {
-  //       id: 1,
-  //       name: "Sour Cherry",
-  //       description: "Lorem Ipsum",
-  //       currentPrice: 6.00,
-  //       originalPrice: 160.00,
-  //       discount: null,
-  //       image: "/images/image 1.png",
-  //       backgroundColor: "#FFB6C1"
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "Sour Blue-Raspberry",
-  //       description: "Lorem Ipsum",
-  //       currentPrice: 6.00,
-  //       originalPrice: 160.00,
-  //       discount: 40,
-  //       image: "/images/image 2.png",
-  //       backgroundColor: "#87CEEB"
-  //     },
-  //     {
-  //       id: 3,
-  //       name: "Sour Berry Delight",
-  //       description: "Lorem Ipsum",
-  //       currentPrice: 6.00,
-  //       originalPrice: 160.00,
-  //       discount: 40,
-  //       image: "/images/image 3.png",
-  //       backgroundColor: "#FF69B4"
-  //     },
-  //     {
-  //       id: 4,
-  //       name: "Sour Apple",
-  //       description: "Lorem Ipsum",
-  //       currentPrice: 6.00,
-  //       originalPrice: 160.00,
-  //       discount: 40,
-  //       image: "/images/image 4.png",
-  //       backgroundColor: "#98FB98"
-  //     },
-  //     {
-  //       id: 5,
-  //       name: "Red Twist",
-  //       description: "Lorem Ipsum",
-  //       currentPrice: 6.00,
-  //       originalPrice: 160.00,
-  //       discount: 40,
-  //       image: "/images/image 5.png",
-  //       backgroundColor: "#FF6B6B"
-  //     },
-  //     {
-  //       id: 6,
-  //       name: "Cotton Candy",
-  //       description: "Lorem Ipsum",
-  //       currentPrice: 6.00,
-  //       originalPrice: 160.00,
-  //       discount: 40,
-  //       image: "/images/image 6.png",
-  //       backgroundColor: "#DDA0DD"
-  //     },
-  //     {
-  //       id: 7,
-  //       name: "Black Twist",
-  //       description: "Lorem Ipsum",
-  //       currentPrice: 6.00,
-  //       originalPrice: 160.00,
-  //       discount: 60,
-  //       image: "/images/hero.png",
-  //       backgroundColor: "#2F2F2F"
-  //     },
-  //     {
-  //       id: 8,
-  //       name: "Cotton Candy",
-  //       description: "Lorem Ipsum",
-  //       currentPrice: 6.00,
-  //       originalPrice: 160.00,
-  //       discount: null,
-  //       image: "/images/hero.png",
-  //       backgroundColor: "#DDA0DD"
-  //     }
-  //   ]
-  // },
-
   // Products Section
   products: [
     {
@@ -204,7 +115,7 @@ export const siteData = {
     {
       id: 9,
       name: "Strawberry Twist",
-      description: "Sweet and tangy strawberry flavor with a delightful twist",
+      description: "Lorem Ipsum",
       currentPrice: 7.50,
       originalPrice: 12.00,
       discount: 37,
@@ -213,16 +124,16 @@ export const siteData = {
     {
       id: 10,
       name: "Grape Explosion",
-      description: "Bursting with rich grape flavor and satisfying texture",
+      description: "Lorem Ipsum",
       currentPrice: 8.00,
       originalPrice: 15.00,
       discount: 47,
-      image: "/images/image 2.png",
+      image: "/images/image 1.png",
     },
     {
       id: 11,
       name: "Watermelon Splash",
-      description: "Refreshing watermelon taste perfect for summer",
+      description: "Lorem Ipsum",
       currentPrice: 6.50,
       originalPrice: 10.00,
       discount: 35,
@@ -231,7 +142,7 @@ export const siteData = {
     {
       id: 12,
       name: "Orange Zest",
-      description: "Zesty orange flavor with a citrusy kick",
+      description: "Lorem Ipsum",
       currentPrice: 7.00,
       originalPrice: 11.00,
       discount: 36,

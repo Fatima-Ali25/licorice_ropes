@@ -15,18 +15,19 @@ export default function Hero() {
   };
 
   return (
-    <section className="h-full w-full min-h-screen relative overflow-hidden flex items-center bg-cover bg-center bg-no-repeat bg-[url('/images/hero.png')]">
+    <section className="h-full w-full min-h-screen relative overflow-hidden flex items-center  bg-cover bg-center bg-no-repeat bg-[url('/images/hero.png')]">
       {/* Background Overlay */}
-      <div className="absolute h-full w-full bg-black/40" />
+      <div className=" absolute h-full w-full bg-black/40" />
 
       {/* Content Container */}
-      <div className="layout w-full h-full flex items-center justify-start sm:justify-center">
-        <div className="flex flex-col gap-4 z-10 text-start text-white w-full max-w-6xl">
-          <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight uppercase">
+      <div className="layout w-full h-full flex items-center justify-start">
+
+        <div className="flex flex-col gap-4 z-10 text-start justify-start text-white w-full  max-w-6xl">
+          <h1 className="text-4xl font-inter sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-wider mb-4 md:mb-6 max-w-6xl leading-24 uppercase">
             Bold Flavors, <span className="text-[#FBC332]">Pure Fun – Taste</span> the Difference Today!
           </h1>
 
-          <p className="text-lg sm:text-sm font-inter md:text-lg lg:text-2xl xl:text-2xl font-medium md:mb-8 text-white uppercase max-w-4xl">
+          <p className="text-xl sm:text-sm font-inter md:text-xl lg:text-2xl xl:text-2xl leading-9 font-medium md:mb-8 text-white uppercase max-w-4xl">
             Indulge in mouthwatering candies crafted in Spain, bursting with flavor and quality ingredients. Perfectly sweet or sour – there's a treat for everyone!
           </p>
 

@@ -30,8 +30,8 @@ const ProductCard = ({ product, onAddToCart, className }: ProductCardProps) => {
   };
 
   return (
-    <Link href={`/products/${product.id}`} className="block">
-      <Card className={`w-full max-w-xs sm:w-64 md:w-72 h-auto sm:h-72 md:h-96 bg-white border-0 shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer hover:scale-105 ${className}`}>
+    <Link href={`/product/${product.id}`} className=" flex items-center justify-center">
+      <Card className={`w-full max-w-xs sm:w-64 md:w-72 md:items-center h-auto sm:h-72 md:h-96 bg-white border-0 shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer hover:scale-105 ${className}`}>
         {/* Product Image Container */}
         <div className="relative h-48 sm:h-56 md:h-64 w-full bg-[#F5F5DC] flex items-center justify-center overflow-hidden">
 
