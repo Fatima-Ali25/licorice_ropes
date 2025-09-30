@@ -28,7 +28,7 @@ export default function TestimonialCard({
     //   className=" bg-amber-200 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full"
     //   onClick={onClick}
     // >
-    <div className="bg-white w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto p-6 sm:p-8 md:p-10 gap-6 sm:gap-8 md:gap-10 flex flex-col items-center justify-center rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+    <div className="bg-white w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-80 p-6 sm:p-8 md:p-10 gap-6 sm:gap-8 md:gap-10 flex flex-col items-center justify-center rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full items-center">
         <Image
           src={image}

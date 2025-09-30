@@ -55,7 +55,7 @@ const ExploreItems = () => {
         </div>
 
         {/* Products Grid - Show only 8 products */}
-        <div className="bg-amber-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-6 md:justify-between items-center justify-between w-full h-full">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-6 md:justify-between items-center justify-between w-full h-full">
           {productList.slice(0, 8).map((product: Product) => (
             <ProductCard
               key={product.id}

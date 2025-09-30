@@ -10,14 +10,6 @@ export const siteData = {
     ],
   },
 
-  // Hero Section
-  hero: {
-    headline: "Bold Flavors, Pure Fun – Taste the Difference Today!",
-    subtext: "Experience authentic flavors crafted with passion and served with love. Join thousands of satisfied customers who choose us for exceptional dining.",
-    ctaText: "Order Now",
-    backgroundImage: "hero.png"
-  },
-
   // Why Choose Us Section
   whyChooseUs: {
     cardData: [

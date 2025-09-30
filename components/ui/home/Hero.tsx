@@ -1,11 +1,8 @@
 'use client';
 
 import Button from '@/components/custom/Button';
-import Link from 'next/link';
-import { siteData } from '@/content';
 
 export default function Hero() {
-  const { hero } = siteData;
 
   const scrollToSection = (id: string) => {
     const el = document.querySelector(id);
@@ -20,10 +17,10 @@ export default function Hero() {
       <div className=" absolute h-full w-full bg-black/40" />
 
       {/* Content Container */}
-      <div className="layout w-full h-full flex items-center justify-start">
+      <div className="layout w-full h-full flex items-center justify-start py-20">
 
-        <div className="flex flex-col gap-4 z-10 text-start justify-start text-white w-full  max-w-6xl">
-          <h1 className="text-4xl font-inter sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-wider mb-4 md:mb-6 max-w-6xl leading-24 uppercase">
+        <div className="flex flex-col gap-4 z-10 text-start justify-start text-white w-full max-w-6xl">
+          <h1 className="text-4xl font-inter sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-wider mb-4 leading-14 sm:leading-14 md:leading-20 lg:leading-20 xl:leading-24 md:mb-6 max-w-6xl uppercase">
             Bold Flavors, <span className="text-[#FBC332]">Pure Fun – Taste</span> the Difference Today!
           </h1>
 

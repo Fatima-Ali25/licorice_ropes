@@ -104,45 +104,10 @@ const SingleProductPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header Navigation */}
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            {/* Logo */}
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
-                  <span className="text-sm font-semibold">Logo</span>
-                </div>
-              </div>
-              <nav className="hidden md:flex space-x-8 ml-8">
-                <Link href="/" className="text-gray-600 hover:text-gray-900 font-medium">HOME</Link>
-                <Link href="/product" className="text-gray-600 hover:text-gray-900 font-medium">ORDER ONLINE</Link>
-                <a href="#about" className="text-gray-600 hover:text-gray-900 font-medium">ABOUT</a>
-                <a href="#contact" className="text-gray-600 hover:text-gray-900 font-medium">CONTACT</a>
-              </nav>
-            </div>
-            
-            {/* User Icons */}
-            <div className="flex items-center space-x-4">
-              <button className="p-2 text-gray-600 hover:text-gray-900">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7-7z" />
-                </svg>
-              </button>
-              <button className="p-2 text-gray-600 hover:text-gray-900">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 3m-2 10a2 2 0 110-4 2 2 0 010 4zm0 0c1.306 0 2.417.835 2.83 2M9 17a2 2 0 11-4 0 2 2 0 014 0zm4 0c1.306 0 2.417.835 2.83 2m-.01-2a2 2 0 114 0 2 2 0 01-4 0z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="w-full h-full bg-white py-28">
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="layout w-full h-full">
         {/* Product Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Product Image */}
