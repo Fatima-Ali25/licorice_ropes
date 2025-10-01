@@ -34,12 +34,12 @@ const WhyChooseUs = () => {
               />
               
               {/* Overlay Text Box */}
-              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 rounded-lg p-4 sm:p-6 max-w-xs sm:max-w-md">
-                <h3 className="text-white font-bold text-lg sm:text-xl mb-2 sm:mb-3">
+              <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-auto md:bottom-6 md:left-6 rounded-lg p-3 sm:p-5 md:p-6 max-w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-[70%] xl:max-w-[60%]">
+                <h3 className="text-white font-semibold text-base sm:text-lg md:text-2xl mb-1 sm:mb-2 md:mb-3 tracking-wide">
                   Candy With a Purpose
                 </h3>
-                <p className="text-white text-xs sm:text-sm leading-relaxed">
-                  We're committed to delivering high quality, flavorful candies made with carefully selected ingredients. Proudly crafted in-house, our sweets are designed to delight with every bite.
+                <p className="text-white text-xs sm:text-sm md:text-base font-regular font-inter leading-4 sm:leading-5 md:leading-6 tracking-wide">
+                  We’re committed to delivering high-quality, flavorful candies made with carefully selected ingredients. Proudly crafted in Spain, our sweets offer a perfect balance of taste, texture, and fun. Whether you crave something sour or sweet, we’ve got something for everyone. We prioritize quality—no shortcuts, just delicious treats you can trust. Our variety, attention to detail, and consistent excellence set us apart. Taste the difference and experience why customers love coming back for more!
                 </p>
               </div>
             </div>

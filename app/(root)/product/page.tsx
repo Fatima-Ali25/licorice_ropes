@@ -2,6 +2,7 @@
 import { siteData } from "@/content";
 import ProductCard from "@/components/custom/ProductCard";
 import { useState } from "react";
+import Link from "next/link";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface Product {
@@ -9,7 +10,7 @@ interface Product {
   name: string;
   description: string;
   currentPrice: number;
-  originalPrice: number;
+  originalPrice?: number;
   discount: number | null;
   image: string;
 }
@@ -77,7 +78,7 @@ const ProductPage = () => {
   return (
     <div className="w-full h-full bg-white py-32">
       {/* Main Content */}
-      <div className="layout w-full h-full py-16">
+      <div className="layout w-full h-full flex flex-col gap-10 py-16">
         {/* Filter and Sort Controls */}
         <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
           <div className="flex flex-wrap gap-7 items-center">
@@ -116,14 +117,15 @@ const ProductPage = () => {
         </div>
 
         {/* Product Grid - 4 columns, responsive */}
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-6  w-full h-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
           {paginatedProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onAddToCart={handleAddToCart}
-              className="hover:scale-105 transition-transform duration-300"
-            />
+            <Link key={product.id} href={`/product/${product.id}`} className="block w-full">
+              <ProductCard
+                product={product}
+                onAddToCart={handleAddToCart}
+                className="hover:scale-105 transition-transform duration-300"
+              />
+            </Link>
           ))}
         </div>
 

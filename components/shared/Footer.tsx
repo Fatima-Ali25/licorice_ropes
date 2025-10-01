@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#E85A2D] py-6 sm:py-8 md:py-12 lg:py-12 xl:py-16">
       <div className="layout w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
-        <h3 className="text-5xl sm:text-4xl md:text-5xl font-inter lg:text-5xl xl:text-6xl font-semibold uppercase tracking-wide mb-6 sm:mb-8 md:mb-10 lg:mb-12">CONTACT US</h3>
+        <h3 className="text-4xl text-white sm:text-4xl md:text-5xl font-inter lg:text-5xl xl:text-6xl font-semibold uppercase tracking-wide mb-6 sm:mb-8 md:mb-10 lg:mb-12">CONTACT US</h3>
         
         {/* Main Footer Content */}
         <div className="flex flex-col lg:flex-row w-full h-full gap-8 sm:gap-10 mb-8 md:gap-12 lg:gap-16">
@@ -111,7 +111,7 @@ export default function Footer() {
                 </div>
 
                 {/* Social Media Icons */}
-                <div className="flex gap-2 text-xs sm:text-sm md:text-base lg:text-lg">
+                <div className="flex gap-2 text-xs text-white sm:text-sm md:text-base lg:text-lg">
                   <Link
                     href="#"
                     className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95"

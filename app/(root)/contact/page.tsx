@@ -83,9 +83,9 @@ const ContactPage = () => {
   return (
     <section className="w-full h-full py-32  bg-white">
 
-      <div className="layout w-full h-full py-10 bg-amber-200 ">
+      <div className="layout w-full h-full py-10 ">
         {/* Main Content */}
-        <div className="max-w-3xl mx-auto bg-amber-300 h-full">
+        <div className="max-w-3xl mx-auto h-full">
           {/* Header */}
           <div className="text-center mb-12 ">
             <h1 className="text-4xl md:text-5xl font-inter font-semibold text-gray-900 mb-4">
