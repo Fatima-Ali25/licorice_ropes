@@ -137,17 +137,17 @@ export default function Footer() {
 
         {/* Bottom Section - Copyright and Legal */}
         <div className="border-t border-white/90 flex flex-col md:flex-row items-center justify-center md:justify-between w-full h-26 gap-2">
-            <div className="text-white font-inter uppercase text-xs text-center md:text-left tracking-wide w-full md:w-auto">
+            <Link href="/privacy-policy" className="text-white font-inter uppercase text-xs text-center md:text-left tracking-wide w-full md:w-auto">
               PRIVACY POLICY
-            </div>
+            </Link>
 
             <div className="text-white font-inter uppercase text-xs text-center md:text-left tracking-wide w-full md:w-auto">
               © 2005 METASOFT CO. ALL RIGHTS RESERVED
             </div>
 
-            <div className="text-white font-inter uppercase text-xs text-center md:text-left tracking-wide w-full md:w-auto">
+            <Link href="/terms-of-service" className="text-white font-inter uppercase text-xs text-center md:text-left tracking-wide w-full md:w-auto">
               TERMS OF SERVICE
-            </div>
+            </Link>
         </div>
       </div>
     </footer>

@@ -10,7 +10,7 @@ interface Product {
   name: string;
   description: string;
   currentPrice: number;
-  originalPrice: number;
+  originalPrice?: number;
   discount: number | null;
   image: string;
   backgroundColor?: string;
@@ -46,21 +46,22 @@ const ExploreItems = () => {
           <h2 className=" text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black uppercase font-inter font-semibold sm:mb-10 md:mb-12 lg:mb-20">
             Explore Items
           </h2>
-          <Link href="/product">
-            <Button className="text-black inline-block font-inter sm:text-xl lg:text-2xl md:text-2xl hover:scale-105 transition-all duration-300"> 
+        
+            <Button href="/product" className="text-black inline-block font-inter sm:text-xl lg:text-2xl md:text-2xl hover:scale-105 transition-all duration-300"> 
               Looking For  
               <Image src="/images/Arrow 3.png" alt="arrow-right" width={150} height={0} className="w-full h-auto" />
             </Button>
-          </Link>
+          
         </div>
 
         {/* Products Grid - Show only 8 products */}
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-6 md:justify-between items-center justify-between w-full h-full">
-          {productList.slice(0, 8).map((product: Product) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 w-full">
+          {productList.slice(0, 4).map((product: Product) => (
             <ProductCard
               key={product.id}
               product={product}
               onAddToCart={handleAddToCart}
+              className="w-full"
             />
           ))}
         </div>

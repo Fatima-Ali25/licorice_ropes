@@ -119,13 +119,11 @@ const ProductPage = () => {
         {/* Product Grid - 4 columns, responsive */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
           {paginatedProducts.map((product) => (
-            <Link key={product.id} href={`/product/${product.id}`} className="block w-full">
               <ProductCard
                 product={product}
                 onAddToCart={handleAddToCart}
                 className="hover:scale-105 transition-transform duration-300"
               />
-            </Link>
           ))}
         </div>
 

@@ -16,11 +16,11 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   disabled = false,
   type = 'button',
-  href = ''
+  href = '/'
 }) => {
 
   return (
-    <Link href={href}>
+    <Link href={`${href}`}>
     <button  
       type={type}
       className={className}

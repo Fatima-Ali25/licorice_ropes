@@ -35,42 +35,42 @@ const ProductCard = ({ product, onAddToCart, className }: ProductCardProps) => {
     : product.description;
 
   return (
-    <div className="block w-full h-full">
-      <Card className={`w-full h-[246px] border-0 shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer hover:scale-105 overflow-hidden flex flex-col bg-white ${className}`}>
+    <Link key={product.id} href={`/product/${product.id}`} className="block w-full">
+      <Card className={`w-full h-full border-0 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer hover:scale-105 overflow-hidden flex flex-col bg-white ${className}`}>
         {/* Product Image Container */}
-        <div className="relative h-[160px] w-full bg-[#F5F5DC] flex items-center justify-center overflow-hidden flex-shrink-0">
+        <div className="relative h-[353px] w-full bg-[#FFF9ED] flex items-center justify-center overflow-hidden flex-shrink-0">
           {/* Product Image */}
           <Image
             src={product.image}
             alt={product.name}
-            width={120}
-            height={120}
+            width={280}
+            height={280}
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-contain"
-            priority={false}
-            quality={95}
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+            className="object-contain transition-transform duration-300 group-hover:scale-110"
+            // priority={false}
+            // quality={95}
+            // placeholder="blur"
+            // blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
           />
 
           {/* Discount Tag */}
           {product.discount && (
-            <div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-sm z-10">
+            <div className="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full z-10 shadow-md">
               -{product.discount}%
             </div>
           )}
         </div>
-
+          
         {/* Product Info */}
-        <div className="p-2 flex flex-col flex-grow bg-white">
+        <div className="p-4 flex flex-col flex-grow  ">
           {/* Product Name */}
-          <h2 className="text-gray-800 text-lg font-bold font-poppins mb-1">
+          <h2 className="text-gray-800 text-lg font-bold font-poppins mb-2 line-clamp-1">
             {product.name}
           </h2>
 
           {/* Description */}
-          <div className="mb-2">
-            <p className="text-gray-500 text-sm font-normal font-inter mb-1">
+          <div className="mb-3 flex-grow">
+            <p className="text-gray-600 text-sm font-normal font-inter leading-relaxed line-clamp-2">
               {truncatedDescription}
             </p>
             
@@ -78,18 +78,18 @@ const ProductCard = ({ product, onAddToCart, className }: ProductCardProps) => {
             {product.description.length > 60 && (
               <Link 
                 href={`/product/${product.id}`}
-                className="text-orange-500 text-sm font-medium hover:underline"
+                className="text-orange-500 text-xs font-medium hover:underline mt-1 inline-block"
               >
-                Read More
+                Read More...
               </Link>
             )}
           </div>
 
           {/* Price and Add to Cart */}
-          <div className="flex items-center justify-between mt-auto">
+          <div className="flex items-center justify-between mt-auto pt-2 border-t border-gray-100">
             {/* Price Section */}
             <div className="flex items-center gap-2">
-              <span className="text-orange-500 text-lg font-bold">
+              <span className="text-orange-500 text-xl font-bold">
                 ${product.currentPrice.toFixed(2)}
               </span>
               {product.originalPrice && product.originalPrice > product.currentPrice && (
@@ -102,15 +102,16 @@ const ProductCard = ({ product, onAddToCart, className }: ProductCardProps) => {
             {/* Add to Cart Button */}
             <button 
               onClick={handleAddToCart} 
-              className="hover:scale-110 transition-transform duration-200 p-1"
+              className="p-2  transition-all duration-200 hover:scale-110 "
               aria-label={`Add ${product.name} to cart`}
             >
-              <ShoppingCart className="text-gray-700 w-5 h-5" />
+              <ShoppingCart className="w-8 h-8" />
             </button>
           </div>
         </div>
       </Card>
-    </div>
+    </Link>
+
   );
 };
 

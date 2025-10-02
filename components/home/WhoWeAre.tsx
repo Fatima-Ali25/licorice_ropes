@@ -12,7 +12,7 @@ const WhoWeAre = () => {
         <div className=" flex md:flex-row flex-col gap-9 w-full justify-between">
           <span className="text-black sm:text-lg lg:text-2xl md:text-2xl font-inter underline">About Us</span>
 
-          <Button className="text-black sm:text-lg lg:text-2xl md:text-2xl flex flex-col items-end justify-end text-right font-inter hover:scale-105 transition-all duration-300"> Baked With Joy, Glazed With Love  <Image src="/images/Arrow 3.png" alt="arrow-right" width={200} height={0} className='w-30 sm:w-28 md:w-30 lg:w-40 h-auto' />
+          <Button href="/about" className="text-black sm:text-lg lg:text-2xl md:text-2xl flex flex-col items-end justify-end text-right font-inter hover:scale-105 transition-all duration-300"> Baked With Joy, Glazed With Love  <Image src="/images/Arrow 3.png" alt="arrow-right" width={200} height={0} className='w-30 sm:w-28 md:w-30 lg:w-40 h-auto' />
           </Button>
         </div>
 

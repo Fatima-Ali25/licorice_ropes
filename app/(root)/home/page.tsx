@@ -1,11 +1,11 @@
-import Hero from '@/components/ui/home/Hero'
-import ExploreItems from '@/components/ui/home/ExploreItems'
-import WhoWeAre from '@/components/ui/home/WhoWeAre'
-import WhyChooseUs from '@/components/ui/home/WhyChooseUs'
+import Hero from '@/components/home/Hero'
+import ExploreItems from '@/components/home/ExploreItems'
+import WhoWeAre from '@/components/home/WhoWeAre'
+import WhyChooseUs from '@/components/home/WhyChooseUs'
 import React from 'react'
-import Testimoinials from '@/components/ui/home/Testimoinials'
+import Testimoinials from '@/components/home/Testimoinials'
 
-const page = () => {
+const HomePage = () => {
   return (
     <div>
       <Hero />
@@ -17,4 +17,4 @@ const page = () => {
   )
 }
 
-export default page
+export default HomePage

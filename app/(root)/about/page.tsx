@@ -1,7 +1,7 @@
-import AboutPage from '@/components/ui/about/Hero'
-import OurMission from '@/components/ui/about/OurMission'
-import OurProcess from '@/components/ui/about/OurProcess'
-import WhoWeAre from '@/components/ui/about/WhoWeAre'
+import AboutPage from '@/components/about/Hero'
+import OurMission from '@/components/about/OurMission'
+import OurProcess from '@/components/about/OurProcess'
+import WhoWeAre from '@/components/home/WhoWeAre'
 import React from 'react'
 
 const page = () => {

@@ -2,6 +2,7 @@ import Image from "next/image";
 import WhyChooseUsCard from "@/components/custom/Card";
 import { siteData } from "@/content/index";
 import Button from "@/components/custom/Button";
+import Link from "next/link";
 
 
 const WhyChooseUs = () => {
@@ -15,7 +16,8 @@ const WhyChooseUs = () => {
           <h2 className=" uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black font-inter font-bold sm:mb-10 md:mb-12 lg:mb-20">
             WHY CHOOSE US?
           </h2>
-          <Button className="text-black inline-block font-inter sm:text-xl lg:text-2xl md:text-2xl hover:scale-105 transition-all duration-300">
+         
+          <Button href="/about" className="text-black inline-block font-inter sm:text-xl lg:text-2xl md:text-2xl hover:scale-105 transition-all duration-300">
             Designed For You <Image src="/images/Arrow 3.png" alt="arrow-right" width={200} height={0} className='w-full h-auto' />
           </Button>
         </div>

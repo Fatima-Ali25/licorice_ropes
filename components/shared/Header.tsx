@@ -1,14 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Heart } from 'lucide-react';
 import { siteData } from '@/content/index';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useFavorites } from '@/contexts/FavoritesContext';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { favorites, hasUnreadNotifications } = useFavorites();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,17 +68,17 @@ export default function Header() {
       <div className={`layout bg-white shadow-lg border border-gray-200 w-full sm:w-1/2 flex items-center justify-between rounded-full transition-all duration-300 overflow-hidden ${isScrolled ? 'h-10 xs:h-12 sm:h-14 md:h-16 shadow-lg' : 'h-12 xs:h-14 sm:h-16 md:h-20'
         }`}>
         {/* Logo */}
-<Link href="/home">
-        <Image
-          src="/images/logo.png"
-          width={100}
-          height={100}
-          alt="Logo"
-          className={`cursor-pointer transition-all duration-300 ${isScrolled ? 'w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12' : 'w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 md:w-14 md:h-14'
-            }`}
+        <Link href="/home">
+          <Image
+            src="/images/logo.png"
+            width={100}
+            height={100}
+            alt="Logo"
+            className={`cursor-pointer transition-all duration-300 ${isScrolled ? 'w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12' : 'w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 md:w-14 md:h-14'
+              }`}
           />
-          </Link>
-            
+        </Link>
+
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center h-full w-2/3 justify-center gap-20 lg:gap-20 lg:mx-8 text-lg font-inter font-medium">
@@ -95,8 +97,8 @@ export default function Header() {
         {/* User & Cart Icons - Mobile Only */}
         <div className="hidden md:flex items-center justify-center gap-2 lg:gap-2 xl:gap-3">
           <Link
-            href="/user"
-            className="flex items-center justify-center p-1 lg:p-1.5 xl:p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            href="/dashboard"
+            className="relative flex items-center justify-center p-1 lg:p-1.5 xl:p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
             // style={{ minWidth: 36, minHeight: 36 }}
             aria-label="User Account"
           >
@@ -109,6 +111,16 @@ export default function Header() {
               // style={{ maxWidth: "100%", height: "auto" }}
               priority
             />
+            {/* Heart icon overlay when there are favorites */}
+            {favorites.length > 0 && (
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+                <Heart className="w-2.5 h-2.5 text-white fill-current" />
+              </div>
+            )}
+            {/* Notification badge */}
+            {hasUnreadNotifications && (
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 rounded-full"></div>
+            )}
           </Link>
           <Link
             href="/cart"
@@ -172,7 +184,7 @@ export default function Header() {
             {/* User & Cart Links */}
             <div className="flex items-center justify-center gap-4 h-1/4 border-b border-gray-200">
               <Link
-                href="/user"
+                href="/dashboard"
                 className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:bg-[#FF8C00]/10 hover:text-[#FF8C00] rounded-lg transition-colors text-base"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
