@@ -14,7 +14,7 @@ import termsData from '@/content/terms_of_service.json';
 //   sections: TermsSection[];
 // }
 
-const TermsOfServicePage = () => {
+const PrivacyPolicyPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -22,12 +22,12 @@ const TermsOfServicePage = () => {
       {/* Main Content */}
       <div className="w-full h-full py-16 sm:py-24 md:py-32 lg:py-36">
         <div className="layout w-full h-full py-10">
-          {/* Terms of Service Container */}
+          {/* Privacy Policy Container */}
           <div className="w-full h-full flex flex-col items-center justify-center py-10">
             {/* Title */}
             <div className="flex flex-col items-center justify-center text-center gap-4 sm:gap-6 sm:mb-10 md:mb-10">
               <h1 className="text-3xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-inter text-gray-900 uppercase">
-                {termsData.title}
+                Privacy Policy
               </h1>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl font-inter leading-6 sm:leading-8 md:leading-9 lg:leading-10 tracking-wide max-w-3xl text-gray-700 px-4">
                 {termsData.description}
@@ -56,4 +56,4 @@ const TermsOfServicePage = () => {
   );
 };
 
-export default TermsOfServicePage;
+export default PrivacyPolicyPage;

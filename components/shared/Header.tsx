@@ -123,7 +123,7 @@ export default function Header() {
             )}
           </Link>
           <Link
-            href="/cart"
+            href="/checkout"
             className="flex items-center justify-center p-1 lg:p-1.5 xl:p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
             // style={{ minWidth: 36, minHeight: 36 }}
             aria-label="Shopping Cart"
@@ -192,12 +192,12 @@ export default function Header() {
                 Account
               </Link>
               <Link
-                href="/cart"
+                href="/checkout"
                 className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:bg-[#FF8C00]/10 hover:text-[#FF8C00] rounded-lg transition-colors text-base"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <Image src="/svg/cart.svg" alt="Shopping Cart" width={18} height={18} className="w-5 h-5" />
-                Cart
+                Checkout
               </Link>
             </div>
           </div>

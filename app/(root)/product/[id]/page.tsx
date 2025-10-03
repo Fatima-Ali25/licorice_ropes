@@ -4,6 +4,7 @@ import ProductCard from "@/components/custom/ProductCard";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Button from "@/components/custom/Button";
+import ButtonWithImage from "@/components/custom/ButtonWithImage";
 import Image from "next/image";
 import Link from "next/link";
 import { useFavorites } from "@/contexts/FavoritesContext";
@@ -152,37 +153,33 @@ const SingleProductPage = () => {
             <p className="text-gray-700 font-inter text-lg font-regular">{product.detailedDescription}</p>
 
             {/* Nutrition Facts */}
-            {/* <div className="bg-gray-50 p-6 rounded-lg flex flex-col gap-4">
+            <div className="bg-gray-50 p-6 rounded-lg flex flex-col gap-10">
               <h3 className="font-semibold text-2xl font-inter mb-2">Nutrition Facts</h3>
-              <div className="flex flex-col gap-2 pl-6">
+              <div className="flex flex-col  gap-2 pl-6">
                 <li className="font-medium text-black">{product.nutritionFacts.servingsPerContainer}</li>
                 <li className="font-medium text-black">{product.nutritionFacts.servingSize}</li>
                 <li className="font-medium text-black">{product.nutritionFacts.amountPerServing}</li>
               </div>
               <h3 className="font-semibold text-2xl font-inter flex gap-4">Calories<ul>{product.nutritionFacts.calories}</ul></h3>
-              <div className="pl-4 space-y-2">
-                <h4 className="font-medium text-black flex justify-between">Total Fat <p>{product.nutritionFacts.totalFat}g (0% Daily Value)</p></h4>
-                <h4 className="font-medium text-black flex justify-between">Sodium <p>{product.nutritionFacts.sodium}mg (1% Daily Value)</p></h4>
-                <h4 className="font-medium text-black flex justify-between">Total Carbohydrate <p>{product.nutritionFacts.totalCarbohydrate}g (8% Daily Value)</p></h4>
-                <h4 className="font-medium text-black flex justify-between">Total Sugars <p>{product.nutritionFacts.totalSugars}g (8% Daily Value)</p></h4>
-                <h4 className="font-medium text-black flex justify-between">Includes <p>{product.nutritionFacts.addedSugars}g Added Sugars (24% Daily Value)</p></h4>
-                <h4 className="font-medium text-black flex justify-between">Protein <p>{product.nutritionFacts.protein}mg</p></h4>
+              <div className="pl-4 border-b border-gray-200 flex flex-col gap-6">
+                <h4 className="font-medium border-b border-gray-200 text-black flex justify-between">Total Fat <p>{product.nutritionFacts.totalFat}g (0% Daily Value)</p></h4>
+                <h4 className="font-medium border-b border-gray-200 text-black flex justify-between">Sodium <p>{product.nutritionFacts.sodium}mg (1% Daily Value)</p></h4>
+                <h4 className="font-medium border-b border-gray-200 text-black flex justify-between">Total Carbohydrate <p>{product.nutritionFacts.totalCarbohydrate}g (8% Daily Value)</p></h4>
+                <h4 className="font-medium border-b border-gray-200 text-black flex justify-between">Total Sugars <p>{product.nutritionFacts.totalSugars}g (8% Daily Value)</p></h4>
+                <h4 className="font-medium border-b border-gray-200 text-black flex justify-between">Includes <p>{product.nutritionFacts.addedSugars}g Added Sugars (24% Daily Value)</p></h4>
+                <h4 className="font-medium border-b border-gray-200 text-black flex justify-between">Protein <p>{product.nutritionFacts.protein}mg</p></h4>
               </div>
-            </div> */}
-
-            {/* Net Weight */}
-            {/* <p className="text-sm text-gray-600">{product.netWeight}</p> */}
+            </div>
 
             {/* Ingredients */}
-            {/* <div>
-              <h4 className="font-semibold mb-2">Ingredients:</h4>
-              <p className="text-sm text-gray-600">{product.ingredients}</p>
-            </div> */}
+            <div className="flex flex-col gap-4">
 
-            {/* Allergens */}
-            {/* <div>
-              <p className="text-sm text-red-600"><strong>{product.allergens}</strong></p>
-            </div> */}
+            {/* Net Weight */}
+            <h3 className="font-semibold text-2xl font-inter flex">{product.netWeight}</h3>
+              <h4 className="font-semibold text-lg font-inter text-gray-600">Ingredients:</h4>
+              <p className="text-sm text-gray-600">{product.ingredients}</p>
+            </div>
+
 
             {/* Price and Action Buttons */}
             <div className="border-0 w-full max-w-md flex flex-col gap-6">

@@ -1,6 +1,6 @@
 'use client';
 
-import Button from '@/components/custom/Button';
+import FullRoundedButton from '@/components/custom/FullRoundedButton';
 
 export default function Hero() {
 
@@ -30,19 +30,19 @@ export default function Hero() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 md:gap-7">
-            <Button
+            <FullRoundedButton
               onClick={() => scrollToSection('#order')}
-              className="bg-[#FBC332] hover:bg-white text-black w-full px-6 py-3 md:px-8 font-inter sm:w-auto md:py-2 text-base md:text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+              className="w-full sm:w-auto"
             >
-              Order Now
-            </Button>
+              ORDER NOW
+            </FullRoundedButton>
 
-            <Button
+            <FullRoundedButton
               onClick={() => scrollToSection('#flavors')}
-              className="bg-white/50 hover:bg-white text-black px-6 py-3 md:px-8 font-inter md:py-2 text-base md:text-lg font-semibold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 w-full sm:w-auto"
+              className="bg-white/50 hover:bg-white w-full sm:w-auto"
             >
-              Explore Flavors
-            </Button>
+              EXPLORE FLAVORS
+            </FullRoundedButton>
           </div>
         </div>
       </div>
